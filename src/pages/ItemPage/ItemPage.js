@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
+import LocationData from '../../components/LocationData/LocationData';
 
 const ItemPage = () => {
     const { id } = useParams();
@@ -20,7 +21,10 @@ const ItemPage = () => {
 
     const storageListElement = item.storages.map(storage => {
         return (
-        <li key={storage.id}>{storage.qty} unit</li>
+            <div key={storage.id}>
+                <span>{storage.qty} unit</span>
+                {<LocationData id={storage.id} />}
+            </div>
         );
     });
 
@@ -32,7 +36,7 @@ const ItemPage = () => {
             <span>{item.code}</span>
             <span>{item.qty} unit</span>
             <span>{item.price} Eur</span>
-            <ul>{storageListElement}</ul>
+            {storageListElement}
         </Container>
     );
 };

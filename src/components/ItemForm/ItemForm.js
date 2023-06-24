@@ -83,7 +83,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
                 </div>
                 <div className='form-control'>
                     <label htmlFor='description'>Item Description</label>
-                    <textarea id='description' name='descrition' value={newItem.description} onChange={inputsHandler} />
+                    <textarea id='description' name='description' value={newItem.description} onChange={inputsHandler} />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='img'>Item Image</label>

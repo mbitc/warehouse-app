@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config';
@@ -12,6 +12,14 @@ const LoginPage = () => {
     localStorage.clear()
 
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        if (loged) {
+            localStorage.setItem('loged', loged)
+            localStorage.setItem('userLevel', JSON.stringify(userData))
+            navigate('/dashboard')
+        }
+    }, [loged])
 
     const inputHandler = e => {
         const { name, value } = e.target;
@@ -39,12 +47,6 @@ const LoginPage = () => {
             .catch(err => console.log(err.message))
     };
 
-    if (loged) {
-        localStorage.setItem('loged', loged)
-        localStorage.setItem('userLevel', JSON.stringify(userData))
-        navigate('/dashboard')
-    }
-
     return (
         <Container>
             <form onSubmit={loginSubmitHandler}>
@@ -54,7 +56,7 @@ const LoginPage = () => {
                 </div>
                 <div className='form-control'>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' id='password' name='password' suggested="current-password" value={user.password} onChange={inputHandler} />
+                    <input type='password' id='password' name='password' suggested='current-password' autoComplete='password' value={user.password} onChange={inputHandler} />
                 </div>
                 <button type='submit'>Login</button>
             </form>

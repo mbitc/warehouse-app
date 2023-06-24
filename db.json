@@ -60,8 +60,43 @@
       "id": 5
     }
   ],
-  "products": [],
-  "storages": [],
+  "products": [
+    {
+      "catalogId": 5,
+      "name": "Apple",
+      "description": "nice green apple",
+      "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
+      "code": 489779,
+      "price": 2.09,
+      "qty": 10,
+      "descrition": "e",
+      "id": 1
+    },
+    {
+      "catalogId": 2,
+      "name": "Coca Cola",
+      "description": "very testy drink",
+      "img": "https://placehold.co/350x240/red/white?font=oswald&text=cola",
+      "code": 539638,
+      "price": 1.23,
+      "qty": 23,
+      "id": 2
+    }
+  ],
+  "storages": [
+    {
+      "id": 1,
+      "productId": 2,
+      "locationId": 1,
+      "qty": 5
+  },
+  {
+      "id": 2,
+      "productId": 2,
+      "locationId": 2,
+      "qty": 5
+  }
+  ],
   "locations": [
     {
       "id": 1,
