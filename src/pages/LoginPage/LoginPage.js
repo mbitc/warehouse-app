@@ -9,6 +9,7 @@ const LoginPage = () => {
     const [user, setUser] = useState(userObj);
     const [userData, setUserData] = useState(null);
     const [loged, setLoged] = useState(false);
+    localStorage.clear()
 
     const navigate = useNavigate();
 
@@ -53,7 +54,7 @@ const LoginPage = () => {
                 </div>
                 <div className='form-control'>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' id='password' name='password' value={user.password} onChange={inputHandler} />
+                    <input type='password' id='password' name='password' suggested="current-password" value={user.password} onChange={inputHandler} />
                 </div>
                 <button type='submit'>Login</button>
             </form>

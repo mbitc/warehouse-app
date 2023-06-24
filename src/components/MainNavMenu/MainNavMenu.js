@@ -1,6 +1,19 @@
+import { NavLink } from 'react-router-dom';
+
 const MainNavMenu = () => {
   return (
-    <div>MainNavMenu</div>
+    <nav>
+      <div>
+        <ul>
+          <li><NavLink to='/catalog'>Catalog</NavLink></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><NavLink to='/'>Logout</NavLink></li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

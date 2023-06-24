@@ -15,11 +15,12 @@ const DashboardPage = () => {
     if (!loged) {
         navigate('/')
     }
-  return (
-    <Container>
-        
-    </Container>
-  );
+
+    return (
+        <Container>
+            <h2>Dashboard</h2>
+        </Container>
+    );
 };
 
 export default DashboardPage;
