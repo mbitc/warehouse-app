@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WithNav, WithoutNav } from './util/NavStatus/NavStatus';
 import LoginPage from './pages/LoginPage/LoginPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 import './App.scss';
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
                         <Route path='/' element={<LoginPage />} />
                     </Route>
                     <Route element={<WithNav />} >
-                        <Route path='/wh' element={<LoginPage />} />
+                        <Route path='/dashboard' element={<DashboardPage />} />
                     </Route>
                 </Routes>
             </Router>

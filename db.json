@@ -1,0 +1,45 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John",
+            "surname": "Doe",
+            "phone": "+37069908888",
+            "email": "john.doe@example.org",
+            "password": "000000",
+            "levelId": 1
+        },
+        {
+            "id": 2,
+            "name": "Joe",
+            "surname": "Doe",
+            "phone": "+37069900888",
+            "email": "joe.doe@example.org",
+            "password": "000000",
+            "levelId": 2
+        },
+        {
+            "id": 1,
+            "name": "Thom",
+            "surname": "Doe",
+            "phone": "+37069908880",
+            "email": "thom.doe@example.org",
+            "password": "000000",
+            "levelId": 3
+        }
+    ],
+    "levels": [
+        {
+            "id": 1,
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "role": "manager"
+        },
+        {
+            "id": 3,
+            "role": "basic"
+        }
+    ]
+}
