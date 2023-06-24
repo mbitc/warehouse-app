@@ -20,9 +20,11 @@ const ProductsPage = () => {
 
     const productsListElement = products.map(product => {
         return (
-            <Link key={product.id} to={`/catalog/item/${product.id}`}>
-                <li>{product.name}: {product.qty}</li>
-            </Link>
+            <li key={product.id} >
+                <Link to={`/catalog/item/${product.id}`}>
+                    {product.name}: {product.qty}
+                </Link>
+            </li>
         )
     });
     return (

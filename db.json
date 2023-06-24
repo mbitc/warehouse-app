@@ -1,103 +1,103 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "John",
-            "surname": "Doe",
-            "phone": "+37069908888",
-            "email": "john.doe@example.org",
-            "password": "000000",
-            "levelId": 1
-        },
-        {
-            "id": 2,
-            "name": "Joe",
-            "surname": "Doe",
-            "phone": "+37069900888",
-            "email": "joe.doe@example.org",
-            "password": "000000",
-            "levelId": 2
-        },
-        {
-            "id": 1,
-            "name": "Thom",
-            "surname": "Doe",
-            "phone": "+37069908880",
-            "email": "thom.doe@example.org",
-            "password": "000000",
-            "levelId": 3
-        }
-    ],
-    "levels": [
-        {
-            "id": 1,
-            "role": "admin"
-        },
-        {
-            "id": 2,
-            "role": "manager"
-        },
-        {
-            "id": 3,
-            "role": "basic"
-        }
-    ],
-    "catalogs": [
-        {
-            "id": 1,
-            "name": "Fuits"
-        },
-        {
-            "id": 2,
-            "name": "Drinks"
-        },
-        {
-            "id": 3,
-            "name": "Vegetables"
-        },
-        {
-            "id": 4,
-            "name": "Confectionery"
-        }
-    ],
-    "products": [
-        {
-            "id": 1,
-            "catalogId": 1,
-            "name": "Apple",
-            "description": "nice green apple",
-            "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
-            "code": 1111,
-            "price": 2.01,
-            "qty": 10
-        }
-    ],
-    "storages": [
-        {
-            "id": 1,
-            "productId": 1,
-            "locationId": 1,
-            "qty": 5
-        },
-        {
-            "id": 2,
-            "productId": 1,
-            "locationId": 2,
-            "qty": 5
-        }
-    ],
-    "locations": [
-        {
-            "id": 1,
-            "line": "m",
-            "sector": 1,
-            "level": 1
-        },
-        {
-            "id": 2,
-            "line": "a",
-            "sector": 2,
-            "level": 2
-        }
-    ] 
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "surname": "Doe",
+      "phone": "+37069908888",
+      "email": "john.doe@example.org",
+      "password": "000000",
+      "levelId": 1
+    },
+    {
+      "id": 2,
+      "name": "Joe",
+      "surname": "Doe",
+      "phone": "+37069900888",
+      "email": "joe.doe@example.org",
+      "password": "000000",
+      "levelId": 2
+    },
+    {
+      "id": 1,
+      "name": "Thom",
+      "surname": "Doe",
+      "phone": "+37069908880",
+      "email": "thom.doe@example.org",
+      "password": "000000",
+      "levelId": 3
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "role": "manager"
+    },
+    {
+      "id": 3,
+      "role": "basic"
+    }
+  ],
+  "catalogs": [
+    {
+      "id": 1,
+      "name": "Fuits"
+    },
+    {
+      "id": 2,
+      "name": "Drinks"
+    },
+    {
+      "id": 3,
+      "name": "Vegetables"
+    },
+    {
+      "id": 4,
+      "name": "Confectionery"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "catalogId": 1,
+      "name": "Apple",
+      "description": "nice green apple",
+      "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
+      "code": 1111,
+      "price": 2.01,
+      "qty": 10
+    }
+  ],
+  "storages": [
+    {
+      "id": 1,
+      "productId": 1,
+      "locationId": 1,
+      "qty": 5
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "locationId": 2,
+      "qty": 5
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "line": "m",
+      "sector": 1,
+      "level": 1
+    },
+    {
+      "id": 2,
+      "line": "a",
+      "sector": 2,
+      "level": 2
+    }
+  ]
 }
