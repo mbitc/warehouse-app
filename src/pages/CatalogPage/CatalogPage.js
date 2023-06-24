@@ -27,6 +27,7 @@ const CatalogPage = () => {
             .then(res => setCatalogs(prevState => [...prevState, res.data]))
             .catch(err => console.log(err.message))
             setAddCatalogInput(false)
+            setCatalog(catalogObj)
         } else {
             setAddCatalogInput(true)
         }
@@ -55,6 +56,8 @@ const CatalogPage = () => {
             .then(() => {
                 const catalogIndex = catalogs.findIndex(catalog => catalog.id === Number(id));
                 setCatalogs(prevState => prevState.toSpliced(catalogIndex, 1))
+                setAddCatalogInput(false)
+                setEditCatalogInput(false)
             })
             .catch(err => console.log(err.message))
     };

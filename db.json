@@ -44,10 +44,6 @@
   ],
   "catalogs": [
     {
-      "id": 1,
-      "name": "Fuits"
-    },
-    {
       "id": 2,
       "name": "Drinks"
     },
@@ -58,34 +54,14 @@
     {
       "id": 4,
       "name": "Confectionery"
-    }
-  ],
-  "products": [
-    {
-      "id": 1,
-      "catalogId": 1,
-      "name": "Apple",
-      "description": "nice green apple",
-      "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
-      "code": 1111,
-      "price": 2.01,
-      "qty": 10
-    }
-  ],
-  "storages": [
-    {
-      "id": 1,
-      "productId": 1,
-      "locationId": 1,
-      "qty": 5
     },
     {
-      "id": 2,
-      "productId": 1,
-      "locationId": 2,
-      "qty": 5
+      "name": "Fruit",
+      "id": 5
     }
   ],
+  "products": [],
+  "storages": [],
   "locations": [
     {
       "id": 1,
