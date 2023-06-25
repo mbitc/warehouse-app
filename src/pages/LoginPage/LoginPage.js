@@ -19,7 +19,7 @@ const LoginPage = () => {
             localStorage.setItem('userLevel', JSON.stringify(userData))
             navigate('/dashboard')
         }
-    }, [loged])
+    }, [loged, navigate, userData])
 
     const inputHandler = e => {
         const { name, value } = e.target;

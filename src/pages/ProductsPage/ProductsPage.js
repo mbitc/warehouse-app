@@ -29,7 +29,7 @@ const ProductsPage = () => {
     const deleteItemHandler = id => {
         axios.delete(`${API_URL}/products/${id}`)
             .then(() => {
-                const productIndex = products.findIndex(product => product.id == Number(id));
+                const productIndex = products.findIndex(product => product.id === Number(id));
                 setProducts(prevState => prevState.toSpliced(productIndex, 1))
             })
             .catch(err => console.log(err.message))

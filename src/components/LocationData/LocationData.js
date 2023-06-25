@@ -16,7 +16,7 @@ const LocationData = ({ id }) => {
     }
 
     return (
-        <div>{location.line}{location.sector}{location.level}</div>
+        <div>{location.line}-{location.sector}-{location.level}</div>
     );
 };
 
