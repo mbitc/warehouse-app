@@ -7,7 +7,11 @@
       "phone": "+37069908888",
       "email": "john.doe@example.org",
       "password": "000000",
-      "levelId": 1
+      "levelId": 2,
+      "level": {
+        "id": 1,
+        "role": "admin"
+      }
     },
     {
       "id": 2,
@@ -19,22 +23,13 @@
       "levelId": 2
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Thom",
       "surname": "Doe",
       "phone": "+37069908880",
       "email": "thom.doe@example.org",
       "password": "000000",
       "levelId": 3
-    },
-    {
-      "name": "marius",
-      "surname": "bo",
-      "phone": "+370699001122",
-      "email": "marius.bo@example.org",
-      "password": "1111",
-      "levelId": 3,
-      "id": 4
     },
     {
       "name": "Marius",
@@ -44,6 +39,19 @@
       "password": "11",
       "levelId": 3,
       "id": 5
+    },
+    {
+      "name": "dovydas",
+      "surname": "banionis",
+      "phone": "+1000000",
+      "email": "dovydas.banionis@g.d",
+      "password": "22",
+      "levelId": 3,
+      "id": 6,
+      "level": {
+        "id": 3,
+        "role": "basic"
+      }
     }
   ],
   "levels": [

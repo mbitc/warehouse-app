@@ -30,10 +30,10 @@ const LoginPage = () => {
 
     const loginSubmitHandler = e => {
         e.preventDefault()
-        axios.get(`${API_URL}/users?q=${user.email}`)
+        axios.get(`${API_URL}/users?q=${user.email}&_expand=level`)
             .then(res => {
-                const { email, password } = res.data[0];
                 if (res.data[0]) {
+                    const { email, password } = res.data[0];
                     if (user.password === password && user.email === email) {
                         setLoged(true)
                         setUserData(res.data[0])

@@ -14,12 +14,20 @@ const SignInForm = ({ show, onCloseModal, data }) => {
     };
 
     const [newUser, setNewUser] = useState(userObj);
+    const [levels, setLevels] = useState(null);
 
     useEffect(() => {
         if (data) {
             setNewUser(data)
         }
+        axios.get(`${API_URL}/levels`)
+            .then(res => setLevels(res.data))
+            .catch(err => console.log(err.message))
     }, [data, show])
+
+    if (!levels) {
+        return null;
+    }
 
     const manageUserHandler = e => {
         e.preventDefault()
@@ -35,8 +43,8 @@ const SignInForm = ({ show, onCloseModal, data }) => {
                         if (newUser.password === newUser.passwordRepeat) {
                             delete newUser.passwordRepeat
                             axios.post(`${API_URL}/users`, newUser)
-                            
-                            .catch(err => console.log(err.message))
+
+                                .catch(err => console.log(err.message))
                             closeModalHandler()
                         } else {
                             console.log('not much password')
@@ -51,7 +59,7 @@ const SignInForm = ({ show, onCloseModal, data }) => {
 
     const inputsHandler = e => {
         const { value, name } = e.target;
-        if (name === 'level') {
+        if (name === 'levelId') {
             setNewUser(prevState => ({ ...prevState, [name]: Number(value) }))
         } else {
             setNewUser(prevState => ({ ...prevState, [name]: value }))
@@ -62,6 +70,40 @@ const SignInForm = ({ show, onCloseModal, data }) => {
         onCloseModal()
         setNewUser(userObj)
     };
+
+    const passwordElement = data
+        ? null
+        : (
+            <>
+                <div className='form-control'>
+                    <label htmlFor='password'>Password</label>
+                    <input type='password' id='password-sign-in' name='password' value={newUser.password} onChange={inputsHandler} />
+                </div>
+                <div className='form-control'>
+                    <label htmlFor='password-repeat'>Repeat Password</label>
+                    <input type='password' id='password-repeat' name='passwordRepeat' value={newUser.passwordRepeat} onChange={inputsHandler} />
+                </div>
+            </>
+        );
+
+    const levelsOptionElement = levels.map(level => {
+        return (
+            <option key={level.id} value={level.id}>{level.role}</option>
+        )
+    });
+
+    const levelSeletElement = data
+        ? (
+            <>
+                <div className='form-control'>
+                    <label htmlFor='levelId'>Role</label>
+                    <select type='levelId' id='levelId' name='levelId' value={newUser.levelId} onChange={inputsHandler}>
+                        {levelsOptionElement}
+                    </select>
+                </div>
+            </>
+        )
+        : null;
 
     return (
         <dialog className='form-modal' open={show}>
@@ -80,17 +122,11 @@ const SignInForm = ({ show, onCloseModal, data }) => {
                     <input type='tel' id='phone' name='phone' value={newUser.phone} onChange={inputsHandler} />
                 </div>
                 <div className='form-control'>
-                    <label htmlFor='email'>Email</label>
+                    <label htmlFor='email-sign-in'>Email</label>
                     <input type='email' id='email-sign-in' name='email' value={newUser.email} onChange={inputsHandler} />
                 </div>
-                <div className='form-control'>
-                    <label htmlFor='password'>Password</label>
-                    <input type='password' id='password-sign-in' name='password' value={newUser.password} onChange={inputsHandler} />
-                </div>
-                <div className='form-control'>
-                    <label htmlFor='password-repeat'>Repeat Password</label>
-                    <input type='password' id='password-repeat' name='passwordRepeat' value={newUser.passwordRepeat} onChange={inputsHandler} />
-                </div>
+                {levelSeletElement}
+                {passwordElement}
                 <button className='btn' type='submit' onClick={manageUserHandler}>{data ? 'Save' : 'Sign In'}</button>
             </form>
             <button className='btn' onClick={closeModalHandler}>Close</button>
