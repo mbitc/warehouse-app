@@ -42,7 +42,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
     const manageItemHandler = e => {
         e.preventDefault()
         if (data) {
-            axios.patch(`${API_URL}/products/${newItem.id}`, (newItem))
+            axios.patch(`${API_URL}/products/${newItem.id}`, newItem)
 
                 .catch(err => console.log(err.message))
         } else {

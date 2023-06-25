@@ -26,7 +26,7 @@ const LocationPage = () => {
             .catch(err => console.log(err.message))
     }, [])
 
-    if (!location) {
+    if (!location || !products) {
         return null;
     }
 

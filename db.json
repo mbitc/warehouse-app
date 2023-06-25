@@ -26,6 +26,24 @@
       "email": "thom.doe@example.org",
       "password": "000000",
       "levelId": 3
+    },
+    {
+      "name": "marius",
+      "surname": "bo",
+      "phone": "+370699001122",
+      "email": "marius.bo@example.org",
+      "password": "1111",
+      "levelId": 3,
+      "id": 4
+    },
+    {
+      "name": "Marius",
+      "surname": "Bo",
+      "phone": "+370699887722",
+      "email": "marius.bo@dom.com",
+      "password": "11",
+      "levelId": 3,
+      "id": 5
     }
   ],
   "levels": [

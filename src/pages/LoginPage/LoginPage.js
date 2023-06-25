@@ -3,16 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
+import SignInForm from '../../components/SignInForm/SignInForm';
 
 const LoginPage = () => {
     const userObj = { email: '', password: '' }
     const [user, setUser] = useState(userObj);
     const [userData, setUserData] = useState(null);
     const [loged, setLoged] = useState(false);
+    const [modal, setModal] = useState(false);
     localStorage.clear()
 
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         if (loged) {
             localStorage.setItem('loged', loged)
@@ -28,14 +30,14 @@ const LoginPage = () => {
 
     const loginSubmitHandler = e => {
         e.preventDefault()
-        axios.get(`${API_URL}/users?q=${user.email}&_expand=level`)
+        axios.get(`${API_URL}/users?q=${user.email}`)
             .then(res => {
-                const {email, password} = res.data[0];
+                const { email, password } = res.data[0];
                 if (res.data[0]) {
                     if (user.password === password && user.email === email) {
                         setLoged(true)
                         setUserData(res.data[0])
-                    } else  if (user.email === email) {
+                    } else if (user.email === email) {
                         console.log('wrong password')
                         setLoged(false)
                     } else {
@@ -46,6 +48,9 @@ const LoginPage = () => {
             })
             .catch(err => console.log(err.message))
     };
+
+    const signInFormHandler = () => setModal(true);
+    const closeModalHandler = () => setModal(false);
 
     return (
         <Container>
@@ -60,6 +65,10 @@ const LoginPage = () => {
                 </div>
                 <button type='submit'>Login</button>
             </form>
+            <div>
+                <input type='button' value='Sign in' onClick={signInFormHandler} />
+            </div>
+            <SignInForm show={modal} onCloseModal={closeModalHandler}/>
         </Container>
     );
 };
