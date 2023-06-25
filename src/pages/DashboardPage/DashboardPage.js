@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Container from '../../components/Container/Container';
+import ProductsCount from '../../components/ProductsCount/ProductsCount';
 
 const DashboardPage = () => {
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ const DashboardPage = () => {
     return (
         <Container>
             <h2>Dashboard</h2>
+            <span>In Warehouse Items</span>
+            <ProductsCount />
         </Container>
     );
 };

@@ -5,6 +5,7 @@ const MainNavMenu = () => {
     <nav>
       <div>
         <ul>
+          <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
           <li><NavLink to='/catalog'>Catalog</NavLink></li>
           <li><NavLink to='/location'>Location</NavLink></li>
           <li><NavLink to='/team'>Team</NavLink></li>
