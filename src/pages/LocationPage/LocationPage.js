@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from '../../components/Container/Container'
 import { API_URL } from '../../config';
+import style from './LocationPage.module.scss';
 
 const LocationPage = () => {
     const placeObj = { line: '', sector: '', level: '' };
@@ -85,18 +86,18 @@ const LocationPage = () => {
             </div>
             <div className='form-control'>
                 <label htmlFor='qty'>Qty</label>
-                <input type='number' id='qty' name='qty' value={storage.qty} onChange={inputProductsHandler}/>
+                <input type='number' id='qty' name='qty' value={storage.qty} onChange={inputProductsHandler} />
             </div>
         </div>
         : null;
 
     const locationListElement = location.map(place => {
         return (
-            <div key={place.id}>
-                <button onClick={() => editLocationHandler(place.id)}>Edit</button>
-                <button onClick={() => deleteLocationHandler(place.id)}>Delete</button>
-                <span>{place.line}-{place.sector}-{place.level}</span>
-            </div>
+            <li key={place.id} className={style.locationList}>
+                    <button className='delete' onClick={() => deleteLocationHandler(place.id)} />
+                    <button className='edit' onClick={() => editLocationHandler(place.id)} />
+                    <span>{place.line}-{place.sector}-{place.level}</span>
+            </li>
         )
     });
 
@@ -156,10 +157,12 @@ const LocationPage = () => {
         <Container>
             {inputStackingElement}
             {inputLocationElement}
-            {!editLocationInput && <button onClick={createLocationHandler}>{addLocationInput ? 'Add' : 'Create Location'}</button>}
-            {editLocationInput && <button onClick={saveLocationHandler}>Save</button>}
-            <button onClick={stackingItemsHandler}>{addItemsInput ? 'Stacking' : 'Stack Items'}</button>
-            {locationListElement}
+            {!editLocationInput && <button className='btn long' onClick={createLocationHandler}>{addLocationInput ? 'Add' : 'Create Location'}</button>}
+            {editLocationInput && <button className='btn long' onClick={saveLocationHandler}>Save</button>}
+            <button className='btn long' onClick={stackingItemsHandler}>{addItemsInput ? 'Stacking' : 'Stack Items'}</button>
+            <div className={style.locationListWrapper}>
+            <ul className='list'>{locationListElement}</ul>
+            </div>
         </Container>
     );
 };

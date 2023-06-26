@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
+import style from './UserPage.module.scss';
 
 const UserPage = () => {
     const { id } = useParams();
@@ -15,7 +16,7 @@ const UserPage = () => {
         axios.get(`${API_URL}/users/${id}?_expand=level`)
             .then(res => setUser(res.data))
             .catch(err => console.log(err.message))
-    }, [id, modal ])
+    }, [id, modal])
 
     if (!user) {
         return null;
@@ -34,15 +35,19 @@ const UserPage = () => {
 
     return (
         <Container>
-            <div>
-                <h2>{name} {surname}</h2>
-                <span>{phone}</span>
-                <span>{email}</span>
-                <span>{user.level.role}</span>
-                <button onClick={editUserHandler}>Edit</button>
-                <button onClick={deleteUserHandler}>Delete</button>
+            <div className={style.userWrapper}>
+                <div className={style.userCase}>
+                    <h2 className={style.userCaseTitle}>{name} {surname}</h2>
+                    <span>{phone}</span>
+                    <span>{email}</span>
+                    <span className={style.userCaseRole}>{user.level.role}</span>
+                    <div className={style.useCaseBtn}>
+                        <button className='edit' onClick={editUserHandler} />
+                        <button className='delete' onClick={deleteUserHandler} />
+                    </div>
+                </div>
             </div>
-            <SignInForm show={modal} data={user} onCloseModal={closeModalHandler}/>
+            <SignInForm show={modal} data={user} onCloseModal={closeModalHandler} />
         </Container>
     );
 };

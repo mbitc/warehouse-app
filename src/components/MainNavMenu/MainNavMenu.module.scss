@@ -1,0 +1,26 @@
+.mainNavMenu {
+    margin: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navGroup {
+    display: flex;
+    gap: 3px;
+    justify-content: space-between;
+}
+
+.menuList {
+    display: flex;
+    gap: 8px;
+}
+
+.active {
+    color: #ffa938;
+}
+
+.menuLink {
+    color: #928f8fef;
+
+}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
+import style from './CatalogPage.module.scss';
 
 const CatalogPage = () => {
     const catalogObj = { name: '' };
@@ -20,19 +21,19 @@ const CatalogPage = () => {
     if (!catalogs) {
         return null;
     }
-    
+
     const createCatalogHandler = () => {
         if (addCatalogInput) {
             axios.post(`${API_URL}/catalogs`, catalog)
-            .then(res => setCatalogs(prevState => [...prevState, res.data]))
-            .catch(err => console.log(err.message))
+                .then(res => setCatalogs(prevState => [...prevState, res.data]))
+                .catch(err => console.log(err.message))
             setAddCatalogInput(false)
             setCatalog(catalogObj)
         } else {
             setAddCatalogInput(true)
         }
     };
-    
+
     const editCatalogHandler = id => {
         axios.get(`${API_URL}/catalogs/${id}`)
             .then(res => {
@@ -43,12 +44,12 @@ const CatalogPage = () => {
 
     const saveCatalogHandler = () => {
         axios.patch(`${API_URL}/catalogs/${catalog.id}`, catalog)
-        .then(() => {
-            setEditCatalogInput(false)
-            setAddCatalogInput(false)
-            setCatalog(catalogObj)
-        })
-        .catch(err => console.log(err.message))
+            .then(() => {
+                setEditCatalogInput(false)
+                setAddCatalogInput(false)
+                setCatalog(catalogObj)
+            })
+            .catch(err => console.log(err.message))
     };
 
     const deleteCatalogHandler = id => {
@@ -61,8 +62,8 @@ const CatalogPage = () => {
             })
             .catch(err => console.log(err.message))
     };
-    
-    
+
+
     const inputHandler = e => {
         const { name, value } = e.target;
         setCatalog(prevState => ({ ...prevState, [name]: value }))
@@ -70,16 +71,16 @@ const CatalogPage = () => {
 
     const catalogListElement = catalogs.map(catalog => {
         return (
-            <li key={catalog.id}>
-                <button onClick={() => editCatalogHandler(catalog.id)}>Edit</button>
-                <button onClick={() => deleteCatalogHandler(catalog.id)}>Delete</button>
-                <Link key={catalog.id} to={`/catalog/${catalog.id}`}>
+            <li key={catalog.id} className={style.categoryList}>
+                <button className='delete' onClick={() => deleteCatalogHandler(catalog.id)} />
+                <button className='edit' onClick={() => editCatalogHandler(catalog.id)} />
+                <Link className='link' key={catalog.id} to={`/catalog/${catalog.id}`}>
                     {catalog.name}: {catalog.products ? catalog.products.length : '0'}
                 </Link>
             </li>
         )
     });
-    
+
     const inputElement = addCatalogInput || editCatalogInput ?
         <div className='form-control'>
             <label htmlFor='name'>Catalog Name</label>
@@ -90,9 +91,11 @@ const CatalogPage = () => {
     return (
         <Container>
             {inputElement}
-            {!editCatalogInput && <button onClick={createCatalogHandler}>{addCatalogInput ? 'Add' : 'Create Catalog'}</button>}
-            {editCatalogInput && <button onClick={saveCatalogHandler}>Save</button>}
-            <ul>{catalogListElement}</ul>
+            {!editCatalogInput && <button className='btn long' onClick={createCatalogHandler}>{addCatalogInput ? 'Add' : 'Create Catalog'}</button>}
+            {editCatalogInput && <button className='btn long' onClick={saveCatalogHandler}>Save</button>}
+            <div className={style.categoryWrapper}>
+                <ul className='list'>{catalogListElement}</ul>
+            </div>
         </Container>
     );
 };

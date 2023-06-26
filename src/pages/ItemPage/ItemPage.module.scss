@@ -1,0 +1,16 @@
+.itemWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    & .itemCase {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.locationQty {
+    display: flex;
+    gap: 5px;
+}

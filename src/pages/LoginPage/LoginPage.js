@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
+import style from './LoginPage.module.scss';
 
 const LoginPage = () => {
     const userObj = { email: '', password: '' }
@@ -54,21 +55,25 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <form onSubmit={loginSubmitHandler}>
-                <div className='form-control'>
-                    <label htmlFor='email'>Email</label>
-                    <input type='email' id='email' name='email' value={user.email} onChange={inputHandler} />
+            <div className={style.formContainer}>
+                <div>
+                    <form onSubmit={loginSubmitHandler}>
+                        <div className='form-control'>
+                            <label htmlFor='email'>Email</label>
+                            <input type='email' id='email' name='email' value={user.email} onChange={inputHandler} />
+                        </div>
+                        <div className='form-control'>
+                            <label htmlFor='password'>Password</label>
+                            <input type='password' id='password' name='password' suggested='current-password' autoComplete='password' value={user.password} onChange={inputHandler} />
+                        </div>
+                        <button className='btn' type='submit'>Login</button>
+                    </form>
+                    <div>
+                        <input className={style.signInBtn} type='button' value='Sign in' onClick={signInFormHandler} />
+                    </div>
                 </div>
-                <div className='form-control'>
-                    <label htmlFor='password'>Password</label>
-                    <input type='password' id='password' name='password' suggested='current-password' autoComplete='password' value={user.password} onChange={inputHandler} />
-                </div>
-                <button type='submit'>Login</button>
-            </form>
-            <div>
-                <input type='button' value='Sign in' onClick={signInFormHandler} />
             </div>
-            <SignInForm show={modal} onCloseModal={closeModalHandler}/>
+            <SignInForm show={modal} onCloseModal={closeModalHandler} />
         </Container>
     );
 };

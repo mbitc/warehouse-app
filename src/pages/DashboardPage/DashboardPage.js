@@ -20,8 +20,10 @@ const DashboardPage = () => {
     return (
         <Container>
             <h2>Dashboard</h2>
-            <span>In Warehouse Items</span>
-            <ProductsCount />
+            <div>
+                <ProductsCount />
+                <span className='test'>At The Warehouse are Items</span>
+            </div>
         </Container>
     );
 };

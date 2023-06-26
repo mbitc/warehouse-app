@@ -1,0 +1,24 @@
+.userWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    & .userCase {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .userCaseTitle {
+        margin: 0 0 12px;
+    }
+
+    & .userCaseRole {
+        margin-top: 8px;
+    }
+
+    & .useCaseBtn {
+        margin-top: 3px;
+    }
+}
+

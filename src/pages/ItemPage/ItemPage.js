@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import LocationData from '../../components/LocationData/LocationData';
+import style from './ItemPage.module.scss';
 
 const ItemPage = () => {
     const { id } = useParams();
@@ -21,22 +22,27 @@ const ItemPage = () => {
 
     const storageListElement = item.storages.map(storage => {
         return (
-            <div key={storage.id}>
+            <div key={storage.id} className={style.locationQty}>
                 <span>{storage.qty} unit</span>
-                {<LocationData id={storage.id} />}
+                <LocationData id={storage.id} />
             </div>
         );
     });
 
     return (
         <Container>
-            <h2>{item.name}</h2>
-            <img src={item.img} alt={item.name} />
-            <p>{item.description}</p>
-            <span>{item.code}</span>
-            <span>{item.qty} unit</span>
-            <span>{item.price} Eur</span>
-            {storageListElement}
+            <div className={style.itemWrapper}>
+                <div className={style.itemCase}>
+                    <h2>{item.name}</h2>
+                    <img src={item.img} alt={item.name} />
+                    <p>{item.description}</p>
+                    <span>{item.code}</span>
+                    <span>{item.qty} unit</span>
+                    <span>{item.price} Eur</span>
+                    {storageListElement}
+                    <Link className='link' to={`/catalog/${item.catalogId}`}>back to products list</Link>
+                </div>
+            </div>
         </Container>
     );
 };

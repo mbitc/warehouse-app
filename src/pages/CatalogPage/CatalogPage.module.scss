@@ -1,0 +1,12 @@
+.categoryWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+
+    & .categoryList {
+        display: flex;
+        align-items: center;
+    }
+}

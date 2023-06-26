@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../config';
+import style from './ProductsCount.module.scss';
 
 const ProductsCount = () => {
     const [products, setProducts] = useState(false);
@@ -24,13 +25,13 @@ const ProductsCount = () => {
     }, [products])
     
     const initValue = 0;
-    const coutentProducts = productsQty.reduce(
+    const coutendProducts = productsQty.reduce(
         (acc, currValue) => acc + currValue,
         initValue
     );
 
     return (
-        <div>{coutentProducts}</div>
+        <div className={style.countedProducts}><span className={style.outputFont}>{coutendProducts}</span></div>
     );
 };
 export default ProductsCount;

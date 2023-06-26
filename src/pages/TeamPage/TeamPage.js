@@ -20,8 +20,11 @@ const TeamPage = () => {
     const usersListElement = users.map(user => {
         return (
             <li key={user.id}>
-                <Link to={`/user/${user.id}`}>
-                    {user.name} {user.surname} {user.level.role}
+                <Link className='link' to={`/user/${user.id}`}>
+                    <div className='test'>
+                    <span>{user.name} {user.surname}</span>
+                    <span>{user.level.role}</span>
+                    </div>
                 </Link>
             </li>
         );
@@ -29,7 +32,7 @@ const TeamPage = () => {
 
     return (
         <Container>
-            <ul>{usersListElement}</ul>
+            <ul className='list'>{usersListElement}</ul>
         </Container>
     );
 };
