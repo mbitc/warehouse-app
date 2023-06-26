@@ -24,7 +24,7 @@ const ItemPage = () => {
         return (
             <div key={storage.id} className={style.locationQty}>
                 <span>{storage.qty} unit</span>
-                <LocationData id={storage.id} />
+                <LocationData id={storage.locationId} />
             </div>
         );
     });
