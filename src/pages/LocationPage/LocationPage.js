@@ -33,7 +33,11 @@ const LocationPage = () => {
 
     const inputLocationHandler = e => {
         const { name, value } = e.target;
-        setPlace(prevState => ({ ...prevState, [name]: value }))
+        if (name === 'sector' || name === 'level') {
+            setPlace(prevState => ({ ...prevState, [name]: Number(value) }))
+        } else {
+            setPlace(prevState => ({ ...prevState, [name]: value }))
+        }
     };
 
     const inputLocationElement = addLocationInput || editLocationInput ?
@@ -67,20 +71,20 @@ const LocationPage = () => {
 
     const inputProductsHandler = e => {
         const { name, value } = e.target;
-        setStorage(prevState => ({ ...prevState, [name]: Number(value) }))
+        setStorage(prevState => ({ ...prevState, [name]: Number(value), }))
     };
 
     const inputStackingElement = addItemsInput ?
         <div>
             <div className='form-control'>
                 <label htmlFor='locationId'>Location</label>
-                <select type='text' id='locationId' name='locationId' value={storage.locationId} onChange={inputProductsHandler}>
+                <select type='number' id='locationId' name='locationId' value={storage.locationId} onChange={inputProductsHandler}>
                     {locationOptionsElement}
                 </select>
             </div>
             <div className='form-control'>
                 <label htmlFor='productId'>Items</label>
-                <select type='text' id='productId' name='productId' value={storage.productIdId} onChange={inputProductsHandler}>
+                <select type='number' id='productId' name='productId' value={storage.productId} onChange={inputProductsHandler}>
                     {productsOptionsElement}
                 </select>
             </div>
@@ -94,9 +98,9 @@ const LocationPage = () => {
     const locationListElement = location.map(place => {
         return (
             <li key={place.id} className={style.locationList}>
-                    <button className='delete' onClick={() => deleteLocationHandler(place.id)} />
-                    <button className='edit' onClick={() => editLocationHandler(place.id)} />
-                    <span>{place.line}-{place.sector}-{place.level}</span>
+                <button className='delete' onClick={() => deleteLocationHandler(place.id)} />
+                <button className='edit' onClick={() => editLocationHandler(place.id)} />
+                <span>{place.line}-{place.sector}-{place.level}</span>
             </li>
         )
     });
@@ -161,7 +165,7 @@ const LocationPage = () => {
             {editLocationInput && <button className='btn long' onClick={saveLocationHandler}>Save</button>}
             <button className='btn long' onClick={stackingItemsHandler}>{addItemsInput ? 'Stacking' : 'Stack Items'}</button>
             <div className={style.locationListWrapper}>
-            <ul className='list'>{locationListElement}</ul>
+                <ul className='list'>{locationListElement}</ul>
             </div>
         </Container>
     );

@@ -42,6 +42,10 @@
 .link {
     text-decoration: none;
     color: #353333;
+
+    &:hover {
+        color: #ffa938;
+    }
 }
 
 .active {
@@ -81,5 +85,14 @@
 
     &:hover {
         background-color: #ff7f7f;
+    }
+}
+
+.form-modal {
+    border: none;
+    top: 20lvh;
+
+    & h2 {
+        margin: 0 0 8px;
     }
 }

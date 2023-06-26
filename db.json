@@ -41,8 +41,8 @@
       "id": 5
     },
     {
-      "name": "dovydas",
-      "surname": "banionis",
+      "name": "Dovydas",
+      "surname": "Banionis",
       "phone": "+1000000",
       "email": "dovydas.banionis@g.d",
       "password": "22",
@@ -88,17 +88,6 @@
   ],
   "products": [
     {
-      "catalogId": 5,
-      "name": "Apple",
-      "description": "nice green apple",
-      "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
-      "code": 489779,
-      "price": 2.09,
-      "qty": 10,
-      "descrition": "e",
-      "id": 1
-    },
-    {
       "catalogId": 2,
       "name": "Coca Cola",
       "description": "very testy drink",
@@ -107,6 +96,26 @@
       "price": 1.23,
       "qty": 23,
       "id": 2
+    },
+    {
+      "catalogId": 5,
+      "name": "Apple",
+      "description": "funy and nice fruit",
+      "img": "https://placehold.co/350x240/green/white?font=oswald&text=apple",
+      "code": 444806,
+      "price": 1.01,
+      "qty": 11,
+      "id": 3
+    },
+    {
+      "catalogId": 3,
+      "name": "Potatoes",
+      "description": "Boiled and fryed",
+      "img": "https://placehold.co/350x240/green/yellow?font=oswald&text=potatoes",
+      "code": 489779,
+      "price": 0.99,
+      "qty": 25,
+      "id": 4
     }
   ],
   "storages": [
@@ -127,6 +136,18 @@
       "productId": 2,
       "qty": 11,
       "id": 3
+    },
+    {
+      "locationId": 2,
+      "productId": 3,
+      "qty": 1,
+      "id": 4
+    },
+    {
+      "locationId": 2,
+      "productId": 4,
+      "qty": 12,
+      "id": 6
     }
   ],
   "locations": [
@@ -144,9 +165,15 @@
     },
     {
       "line": "z",
-      "sector": "1",
-      "level": "1",
+      "sector": 1,
+      "level": 1,
       "id": 3
+    },
+    {
+      "line": "d",
+      "sector": 1,
+      "level": 1,
+      "id": 4
     }
   ]
 }

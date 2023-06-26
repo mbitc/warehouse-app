@@ -33,14 +33,18 @@ const ItemPage = () => {
         <Container>
             <div className={style.itemWrapper}>
                 <div className={style.itemCase}>
-                    <h2>{item.name}</h2>
+                    <h2 className={style.itemTitle}>{item.name}</h2>
                     <img src={item.img} alt={item.name} />
-                    <p>{item.description}</p>
-                    <span>{item.code}</span>
-                    <span>{item.qty} unit</span>
-                    <span>{item.price} Eur</span>
-                    {storageListElement}
-                    <Link className='link' to={`/catalog/${item.catalogId}`}>back to products list</Link>
+                    <p className={style.itemDescription}>{item.description}</p>
+                    <div className={style.itemData}>
+                        <span>{item.code}</span>
+                        <span>{item.qty} unit</span>
+                        <span>{item.price} Eur</span>
+                        {storageListElement}
+                        <Link className='link' to={`/catalog/${item.catalogId}`}>
+                            <span className={style.backLink}>back to products list</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </Container>

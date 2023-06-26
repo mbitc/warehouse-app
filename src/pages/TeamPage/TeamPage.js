@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
-import { Link } from 'react-router-dom';
+import style from './TeamPage.module.scss';
 
 const TeamPage = () => {
     const [users, setUsers] = useState(null);
@@ -22,8 +23,8 @@ const TeamPage = () => {
             <li key={user.id}>
                 <Link className='link' to={`/user/${user.id}`}>
                     <div className='test'>
-                    <span>{user.name} {user.surname}</span>
-                    <span>{user.level.role}</span>
+                        <span>{user.name} {user.surname}</span>
+                        <span>{user.level.role}</span>
                     </div>
                 </Link>
             </li>
@@ -32,7 +33,9 @@ const TeamPage = () => {
 
     return (
         <Container>
-            <ul className='list'>{usersListElement}</ul>
+            <div className={style.teamWrapper}>
+                <ul className='list'>{usersListElement}</ul>
+            </div>
         </Container>
     );
 };
