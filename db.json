@@ -94,7 +94,7 @@
       "img": "https://placehold.co/350x240/red/white?font=oswald&text=cola",
       "code": 539638,
       "price": 1.23,
-      "qty": 23,
+      "qty": 24,
       "id": 2
     },
     {
@@ -148,6 +148,12 @@
       "productId": 4,
       "qty": 12,
       "id": 6
+    },
+    {
+      "locationId": "",
+      "productId": "",
+      "qty": 1,
+      "id": 7
     }
   ],
   "locations": [

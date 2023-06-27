@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import LocationData from '../../components/LocationData/LocationData';
@@ -13,7 +14,7 @@ const ItemPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/products/${id}?_embed=storages`)
             .then(res => setItem(res.data))
-            .catch(err => console.log(err))
+            .catch(err => toast.error(err))
     }, [id])
 
     if (!item) {

@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
@@ -15,7 +16,7 @@ const UserPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/users/${id}?_expand=level`)
             .then(res => setUser(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [id, modal])
 
     if (!user) {
@@ -24,8 +25,11 @@ const UserPage = () => {
 
     const deleteUserHandler = () => {
         axios.delete(`${API_URL}/users/${id}`)
-            .then(() => navigation('/team'))
-            .catch(err => console.log(err.message))
+            .then(res => {
+                toast.info(`User ${user.name} ${user.surname} is deleted ${res.statusText}`)
+                navigation('/team')
+            })
+            .catch(err => toast.error(err.message))
     };
 
     const editUserHandler = () => setModal(true);
@@ -38,8 +42,8 @@ const UserPage = () => {
             <div className={style.userWrapper}>
                 <div className={style.userCase}>
                     <h2 className={style.userCaseTitle}>{name} {surname}</h2>
-                    <span>{phone}</span>
-                    <span>{email}</span>
+                    <span><a className='link' href={`tel://${phone}`}>{phone}</a></span>
+                    <span><a className='link' href={`mailto://${phone}`}>{email}</a></span>
                     <span className={style.userCaseRole}>{user.level.role}</span>
                     <div className={style.useCaseBtn}>
                         <button className='edit' onClick={editUserHandler} />

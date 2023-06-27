@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 
 const ItemForm = ({ show, onCloseModal, data }) => {
@@ -28,7 +29,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
     useEffect(() => {
         axios.get(`${API_URL}/catalogs`)
             .then(res => setCatalogs(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [])
 
     const catalogsListElement = catalogs.map(catalog => {
@@ -43,12 +44,12 @@ const ItemForm = ({ show, onCloseModal, data }) => {
         e.preventDefault()
         if (data) {
             axios.patch(`${API_URL}/products/${newItem.id}`, newItem)
-
-                .catch(err => console.log(err.message))
-        } else {
-            axios.post(`${API_URL}/products`, (newItem))
-
-                .catch(err => console.log(err.message))
+                .then(res => toast.success(`Item ${newItem.name} is updated ${res.statusText}`))
+                .catch(err => toast.error(err.message))
+            } else {
+                axios.post(`${API_URL}/products`, (newItem))
+                .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
+                .catch(err => toast.error(err.message))
         }
         closeModalHandler()
     };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import style from './CatalogPage.module.scss';
@@ -15,7 +16,7 @@ const CatalogPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/catalogs?_embed=products`)
             .then(res => setCatalogs(res.data))
-            .catch(err => console.log(err))
+            .catch(err => toast.error(err.message))
     }, [editCatalogInput])
 
     if (!catalogs) {
@@ -25,8 +26,11 @@ const CatalogPage = () => {
     const createCatalogHandler = () => {
         if (addCatalogInput) {
             axios.post(`${API_URL}/catalogs`, catalog)
-                .then(res => setCatalogs(prevState => [...prevState, res.data]))
-                .catch(err => console.log(err.message))
+                .then(res => {
+                    setCatalogs(prevState => [...prevState, res.data])
+                    toast.success(`Category ${catalog.name} is ${res.statusText}`)
+                })
+                .catch(err => toast.error(err.message))
             setAddCatalogInput(false)
             setCatalog(catalogObj)
         } else {
@@ -40,27 +44,30 @@ const CatalogPage = () => {
                 setEditCatalogInput(true)
                 setCatalog(prevState => ({ ...prevState, ...res.data }))
             })
+            .catch(err => toast.error(err.message))
     };
 
     const saveCatalogHandler = () => {
         axios.patch(`${API_URL}/catalogs/${catalog.id}`, catalog)
-            .then(() => {
+            .then(res => {
+                toast.success(`Category ${catalog.name} updated ${res.statusText}`)
                 setEditCatalogInput(false)
                 setAddCatalogInput(false)
                 setCatalog(catalogObj)
             })
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     };
 
     const deleteCatalogHandler = id => {
         axios.delete(`${API_URL}/catalogs/${id}`)
-            .then(() => {
+            .then(res => {
                 const catalogIndex = catalogs.findIndex(catalog => catalog.id === Number(id));
                 setCatalogs(prevState => prevState.toSpliced(catalogIndex, 1))
+                toast.info(`Category ${catalog.name} is deleted ${res.statusText}`)
                 setAddCatalogInput(false)
                 setEditCatalogInput(false)
             })
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     };
 
 

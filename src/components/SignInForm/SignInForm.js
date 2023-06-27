@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 
 const SignInForm = ({ show, onCloseModal, data }) => {
@@ -22,7 +23,7 @@ const SignInForm = ({ show, onCloseModal, data }) => {
         }
         axios.get(`${API_URL}/levels`)
             .then(res => setLevels(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [data, show])
 
     if (!levels) {
@@ -33,8 +34,8 @@ const SignInForm = ({ show, onCloseModal, data }) => {
         e.preventDefault()
         if (data) {
             axios.patch(`${API_URL}/users/${newUser.id}`, (newUser))
-
-                .catch(err => console.log(err.message))
+                .then(res => toast.success(`User ${newUser.name} is updated ${res.statusText}`))
+                .catch(err => toast.error(err.message))
             closeModalHandler()
         } else {
             axios.get(`${API_URL}/users?q=${newUser.email}`)
@@ -43,17 +44,17 @@ const SignInForm = ({ show, onCloseModal, data }) => {
                         if (newUser.password === newUser.passwordRepeat) {
                             delete newUser.passwordRepeat
                             axios.post(`${API_URL}/users`, newUser)
-
-                                .catch(err => console.log(err.message))
+                                .then(res => toast.success(`User ${newUser.name} is ${res.statusText}`))
+                                .catch(err => toast.error(err.message))
                             closeModalHandler()
                         } else {
-                            console.log('not much password')
+                            toast.error('not much password')
                         }
                     } else {
-                        console.log('User has')
+                        toast.error('User has')
                     }
                 })
-                .catch(err => console.log(err.message))
+                .catch(err => toast.error(err.message))
         }
     };
 

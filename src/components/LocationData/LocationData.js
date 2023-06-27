@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 
 const LocationData = ({ id }) => {
@@ -8,7 +9,7 @@ const LocationData = ({ id }) => {
     useEffect(() => {
         axios.get(`${API_URL}/locations/${id}`)
             .then(res => setLocation(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [id])
 
     if (!location) {

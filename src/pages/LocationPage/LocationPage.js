@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import Container from '../../components/Container/Container'
 import { API_URL } from '../../config';
 import style from './LocationPage.module.scss';
@@ -18,13 +19,13 @@ const LocationPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/locations?_embed=storages`)
             .then(res => setLocation(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [])
 
     useEffect(() => {
         axios.get(`${API_URL}/products`)
             .then(res => setProducts(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [])
 
     if (!location || !products) {
@@ -108,38 +109,44 @@ const LocationPage = () => {
     const createLocationHandler = () => {
         if (addLocationInput) {
             axios.post(`${API_URL}/locations`, place)
-                .then(res => setLocation(prevState => [...prevState, res.data]))
-                .catch(err => console.log(err.message))
-            setAddLocationInput(false)
-            setPlace(placeObj)
-        } else {
-            setAddLocationInput(true)
-        }
-    };
-
-    const editLocationHandler = id => {
-        axios.get(`${API_URL}/locations/${id}`)
+                .then(res => {
+                    setLocation(prevState => [...prevState, res.data])
+                    toast.success(`Location ${place.line}-${place.sector}-${place.level} is ${res.statusText} `)
+                })
+                .catch(err => toast.error(err.message))
+                setAddLocationInput(false)
+                setPlace(placeObj)
+            } else {
+                setAddLocationInput(true)
+            }
+        };
+        
+        const editLocationHandler = id => {
+            axios.get(`${API_URL}/locations/${id}`)
             .then(res => {
-                setEditLocationInput(true)
                 setPlace(prevState => ({ ...prevState, ...res.data }))
+                setEditLocationInput(true)
             })
-    };
-
-    const saveLocationHandler = () => {
-        axios.patch(`${API_URL}/locations/${place.id}`, place)
-            .then(() => {
+            .catch(err => toast.error(err.message))
+        };
+        
+        const saveLocationHandler = () => {
+            axios.patch(`${API_URL}/locations/${place.id}`, place)
+            .then(res => {
+                toast.success(`Location ${place.line}-${place.sector}-${place.level} is ${res.statusText} `)
                 setEditLocationInput(false)
                 setAddLocationInput(false)
                 setPlace(placeObj)
             })
-            .catch(err => console.log(err.message))
-    };
-
-    const deleteLocationHandler = id => {
-        axios.delete(`${API_URL}/locations/${id}`)
-            .then(() => {
+            .catch(err => toast.error(err.message))
+        };
+        
+        const deleteLocationHandler = id => {
+            axios.delete(`${API_URL}/locations/${id}`)
+            .then(res => {
                 const locationIndex = location.findIndex(place => place.id === Number(id));
                 setLocation(prevState => prevState.toSpliced(locationIndex, 1))
+                toast.info(`Location ${place.line}-${place.sector}-${place.level} is deleted ${res.statusText} `)
                 setAddLocationInput(false)
                 setEditLocationInput(false)
             })
@@ -149,7 +156,8 @@ const LocationPage = () => {
     const stackingItemsHandler = () => {
         if (addItemsInput) {
             axios.post(`${API_URL}/storages`, storage)
-                .catch(err => console.log(err.message))
+            .then(res => toast.success(`Items stakcking is ${res.statusText} `))
+                .catch(err => toast.error(err.message))
             setAddItemsInput(false)
             setStorage(storageObj)
         } else {

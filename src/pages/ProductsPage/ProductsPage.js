@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import ItemForm from '../../components/ItemForm/ItemForm';
@@ -15,7 +16,7 @@ const ProductsPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/catalogs/${id}?_embed=products`)
             .then(res => setProducts(res.data.products))
-            .catch(err => console.log(err))
+            .catch(err => toast.error(err.message))
     }, [id, modal])
 
     if (!products) {
@@ -29,11 +30,12 @@ const ProductsPage = () => {
 
     const deleteItemHandler = id => {
         axios.delete(`${API_URL}/products/${id}`)
-            .then(() => {
+            .then(res => {
                 const productIndex = products.findIndex(product => product.id === Number(id));
                 setProducts(prevState => prevState.toSpliced(productIndex, 1))
+                toast.info(`Product ${product.name} is deleted ${res.statusText}`)
             })
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     };
 
     const productsListElement = products.map(product => {

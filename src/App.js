@@ -8,6 +8,8 @@ import TeamPage from './pages/TeamPage/TeamPage';
 import UserPage from './pages/UserPage/UserPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ItemPage from './pages/ItemPage/ItemPage';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import './App.scss';
 
 const App = () => {
@@ -30,6 +32,18 @@ const App = () => {
                     </Route>
                 </Routes>
             </Router>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     );
 };

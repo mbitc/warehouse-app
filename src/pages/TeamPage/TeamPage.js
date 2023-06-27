@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import style from './TeamPage.module.scss';
@@ -11,7 +12,7 @@ const TeamPage = () => {
     useEffect(() => {
         axios.get(`${API_URL}/users?_expand=level`)
             .then(res => setUsers(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [])
 
     if (!users) {
@@ -22,9 +23,9 @@ const TeamPage = () => {
         return (
             <li key={user.id}>
                 <Link className='link' to={`/user/${user.id}`}>
-                    <div className='test'>
+                    <div className={style.userCase}>
                         <span>{user.name} {user.surname}</span>
-                        <span>{user.level.role}</span>
+                        <span className={style.userRole}>{user.level.role}</span>
                     </div>
                 </Link>
             </li>
@@ -34,7 +35,7 @@ const TeamPage = () => {
     return (
         <Container>
             <div className={style.teamWrapper}>
-                <ul className='list'>{usersListElement}</ul>
+                <ul className={`list ${style.teamList}`}>{usersListElement}</ul>
             </div>
         </Container>
     );

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../config';
 import style from './ProductsCount.module.scss';
+import { toast } from 'react-toastify';
 
 const ProductsCount = () => {
     const [products, setProducts] = useState(false);
@@ -10,7 +11,7 @@ const ProductsCount = () => {
     useEffect(() => {
         axios.get(`${API_URL}/products`)
             .then(res => setProducts(res.data))
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     }, [])
 
     

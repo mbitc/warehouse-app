@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
@@ -39,10 +40,10 @@ const LoginPage = () => {
                         setLoged(true)
                         setUserData(res.data[0])
                     } else if (user.email === email) {
-                        console.log('wrong password')
+                        toast.error('wrong password')
                         setLoged(false)
                     } else {
-                        console.log('wrong email')
+                        toast.error('wrong email')
                         setLoged(false)
                     }
                 }
