@@ -128,7 +128,7 @@ const SignInForm = ({ show, onCloseModal, data }) => {
                 </div>
                 {levelSeletElement}
                 {passwordElement}
-                <button className='btn' type='submit' onClick={manageUserHandler}>{data ? 'Save' : 'Sign In'}</button>
+                <button className='btn' type='submit' onClick={manageUserHandler}>{data ? 'Save' : 'Sign'}</button>
             </form>
             <button className='btn' onClick={closeModalHandler}>Close</button>
         </dialog>
