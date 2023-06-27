@@ -1,0 +1,35 @@
+.itemWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    & .itemCase {
+        display: flex;
+        flex-direction: column;
+
+        & .itemTitle {
+            margin: 0 0 8px;
+        }
+
+        & .itemData {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        & .backLink {
+            font-size: 0.9rem;
+        }
+
+        & .itemDescription {
+            margin: 8px 0 12px;
+        }
+    }
+
+}
+
+.locationQty {
+    display: flex;
+    gap: 5px;
+}

@@ -1,0 +1,21 @@
+.teamWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    & .teamList {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    & .userCase {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .userRole {
+        font-size: 0.8rem;
+    }
+}

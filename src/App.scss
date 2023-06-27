@@ -1,0 +1,98 @@
+.form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    font-size: 0.8rem;
+    margin-top: 3px;
+}
+
+.btn {
+    display: inline-block;
+    width: 88px;
+    text-decoration: none;
+    text-align: center;
+    color: #353333;
+    border: 1px solid;
+    background-color: #ffffff;
+    border-color: #b3afaf;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 7px 22px;
+    margin: 5px 5px 0 0;
+    cursor: pointer;
+
+    &.long {
+        width: 144px;
+    }
+
+    &:hover {
+        color: #ffffff;
+        background-color: #353333;
+    }
+}
+
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: #353333;
+
+    &:hover {
+        color: #ffa938;
+    }
+}
+
+.active {
+    color: #ffa938 !important;
+}
+
+.edit {
+    border: none;
+    background-color: transparent;
+    padding: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &::before {
+        content: url('./img/edit.svg');
+        margin-right: 25px;
+    }
+
+    &:hover {
+        background-color: #2edce9;
+
+    }
+}
+
+.delete {
+    border: none;
+    background-color: transparent;
+    padding: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &::before {
+        content: url('./img/delete.svg');
+        margin-right: 25px;
+    }
+
+
+    &:hover {
+        background-color: #ff7f7f;
+    }
+}
+
+.form-modal {
+    border: none;
+    top: 20lvh;
+
+    & h2 {
+        margin: 0 0 8px;
+    }
+}

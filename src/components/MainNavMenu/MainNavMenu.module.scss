@@ -1,0 +1,68 @@
+@use '../../scss/responsive';
+
+.mainNavMenu {
+    position: relative;
+    margin: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    & .navGroup {
+        display: flex;
+        gap: 3px;
+        justify-content: space-between;
+
+        @include responsive.md {
+            display: none;
+        }
+    }
+
+
+    & .navGroupStack {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @include responsive.md {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+    }
+
+    & .menuList {
+        display: flex;
+        gap: 8px;
+    }
+
+
+    & .menuLink {
+        color: #928f8fef;
+
+    }
+
+    & .stack {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background-color: transparent;
+        padding: 1px;
+        cursor: pointer;
+
+        &::after {
+            content: url('../../img/stack.svg');
+            margin-right: 35px;
+        }
+
+        @include responsive.md {
+            display: block;
+        }
+    }
+}
+
+.onStack {
+    display: none !important;
+}

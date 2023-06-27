@@ -1,0 +1,11 @@
+.locationListWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    & .locationList {
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,12 @@
+.productListWrapper {
+    display: flex;
+    height: 80lvh;
+    justify-content: center;
+    align-items: center;
+
+    
+    & .productList {
+        display: flex;
+        align-items: center;
+    }
+}

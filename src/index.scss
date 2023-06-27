@@ -1,0 +1,21 @@
+@mixin google-font($family) {
+  @import url('http://fonts.googleapis.com/css2?family=#{$family}');
+}
+
+@include google-font('Inter:wght@400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
