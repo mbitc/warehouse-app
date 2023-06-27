@@ -80,12 +80,14 @@ const LocationPage = () => {
             <div className='form-control'>
                 <label htmlFor='locationId'>Location</label>
                 <select type='number' id='locationId' name='locationId' value={storage.locationId} onChange={inputProductsHandler}>
+                    <option value='' disabled>select location</option>
                     {locationOptionsElement}
                 </select>
             </div>
             <div className='form-control'>
                 <label htmlFor='productId'>Items</label>
                 <select type='number' id='productId' name='productId' value={storage.productId} onChange={inputProductsHandler}>
+                    <option value='' disabled>select product</option>
                     {productsOptionsElement}
                 </select>
             </div>
