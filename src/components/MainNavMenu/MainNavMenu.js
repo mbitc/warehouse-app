@@ -1,7 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import style from './MainNavMenu.module.scss';
+import { useState } from 'react';
 
 const MainNavMenu = () => {
+  const [stack, setStack] = useState(false);
+
+  const onStackHandler = () => setStack(true);
+  const closeStackHandler = () => setStack(false);
+
   return (
     <nav className={style.mainNavMenu}>
       <div className={style.navGroup}>
@@ -15,6 +21,16 @@ const MainNavMenu = () => {
           <li><NavLink className={`link ${style.menuLink}`} to='/'>Logout</NavLink></li>
         </ul>
       </div>
+      <div className={`${style.navGroupStack} ${!stack && style.onStack}`}>
+        <ul className='list' onClick={closeStackHandler}>
+          <li><NavLink className={`link ${style.menuLink}`} to='/dashboard'>Dashboard</NavLink></li>
+          <li><NavLink className={`link ${style.menuLink}`} to='/catalog'>Catalog</NavLink></li>
+          <li><NavLink className={`link ${style.menuLink}`} to='/location'>Location</NavLink></li>
+          <li><NavLink className={`link ${style.menuLink}`} to='/team'>Team</NavLink></li>
+          <li><NavLink className={`link ${style.menuLink}`} to='/'>Logout</NavLink></li>
+        </ul>
+      </div>
+        <button onClick={onStackHandler} className={`${style.stack} ${stack && style.onStack}`}></button>
     </nav>
   );
 };
