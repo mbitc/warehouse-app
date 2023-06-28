@@ -21,7 +21,7 @@ const LoginPage = () => {
         if (loged) {
             localStorage.setItem('loged', loged)
             localStorage.setItem('userLevel', JSON.stringify(userData))
-            navigate('/dashboard')
+            navigate('/warehouse-app/dashboard')
         }
     }, [loged, navigate, userData])
 

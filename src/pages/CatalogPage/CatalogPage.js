@@ -81,7 +81,7 @@ const CatalogPage = () => {
             <li key={catalog.id} className={style.categoryList}>
                 <button className='delete' onClick={() => deleteCatalogHandler(catalog.id)} />
                 <button className='edit' onClick={() => editCatalogHandler(catalog.id)} />
-                <Link className='link' key={catalog.id} to={`/catalog/${catalog.id}`}>
+                <Link className='link' key={catalog.id} to={`/warehouse-app/catalog/${catalog.id}`}>
                     {catalog.name}: {catalog.products ? catalog.products.length : '0'}
                 </Link>
             </li>

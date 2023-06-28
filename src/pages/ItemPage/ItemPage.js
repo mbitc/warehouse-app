@@ -42,7 +42,7 @@ const ItemPage = () => {
                         <span>{item.qty} unit</span>
                         <span>{item.price} Eur</span>
                         {storageListElement}
-                        <Link className='link' to={`/catalog/${item.catalogId}`}>
+                        <Link className='link' to={`/warehouse-app/catalog/${item.catalogId}`}>
                             <span className={style.backLink}>back to products list</span>
                         </Link>
                     </div>

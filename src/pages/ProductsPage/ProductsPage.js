@@ -43,7 +43,7 @@ const ProductsPage = () => {
             <li key={product.id} className={style.productList}>
                 <button className='edit' onClick={() => editItemHandler(product)} />
                 <button className='delete' onClick={() => deleteItemHandler(product.id)} />
-                <Link className='link' to={`/catalog/item/${product.id}`}>
+                <Link className='link' to={`/warehouse-app/catalog/item/${product.id}`}>
                     {product.name}: {product.qty}
                 </Link>
             </li>

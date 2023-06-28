@@ -22,7 +22,7 @@ const TeamPage = () => {
     const usersListElement = users.map(user => {
         return (
             <li key={user.id}>
-                <Link className='link' to={`/user/${user.id}`}>
+                <Link className='link' to={`/warehouse-app/user/${user.id}`}>
                     <div className={style.userCase}>
                         <span>{user.name} {user.surname}</span>
                         <span className={style.userRole}>{user.level.role}</span>

@@ -19,16 +19,16 @@ const App = () => {
                 <Routes>
                     <Route path='*' element={<h1>404 Page not found...</h1>} />
                     <Route element={<WithoutNav />} >
-                        <Route path='/' element={<LoginPage />} />
+                        <Route path='/warehouse-app' element={<LoginPage />} />
                     </Route>
                     <Route element={<WithNav />} >
-                        <Route path='/dashboard' element={<DashboardPage />} />
-                        <Route path='/location' element={<LocationPage />} />
-                        <Route path='/team' element={<TeamPage />} />
-                        <Route path='/user/:id' element={<UserPage />} />
-                        <Route path='/catalog' element={<CatalogPage />} />
-                        <Route path='/catalog/:id' element={<ProductsPage />} />
-                        <Route path='/catalog/item/:id' element={<ItemPage />} />
+                        <Route path='/warehouse-app/dashboard' element={<DashboardPage />} />
+                        <Route path='/warehouse-app/location' element={<LocationPage />} />
+                        <Route path='/warehouse-app/team' element={<TeamPage />} />
+                        <Route path='/warehouse-app/user/:id' element={<UserPage />} />
+                        <Route path='/warehouse-app/catalog' element={<CatalogPage />} />
+                        <Route path='/warehouse-app/catalog/:id' element={<ProductsPage />} />
+                        <Route path='/warehouse-app/catalog/item/:id' element={<ItemPage />} />
                     </Route>
                 </Routes>
             </Router>

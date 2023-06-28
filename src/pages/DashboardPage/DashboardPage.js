@@ -14,7 +14,7 @@ const DashboardPage = () => {
     }, [browserDataLoged])
 
     if (!loged) {
-        navigate('/')
+        navigate('/warehouse-app')
     }
 
     return (
