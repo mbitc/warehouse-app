@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import LocationData from '../../components/LocationData/LocationData';
 import style from './ItemPage.module.scss';
@@ -42,7 +42,7 @@ const ItemPage = () => {
                         <span>{item.qty} unit</span>
                         <span>{item.price} Eur</span>
                         {storageListElement}
-                        <Link className='link' to={`/catalog/${item.catalogId}`}>
+                        <Link className='link' to={`${ROOT_PATH}catalog/${item.catalogId}`}>
                             <span className={style.backLink}>back to products list</span>
                         </Link>
                     </div>

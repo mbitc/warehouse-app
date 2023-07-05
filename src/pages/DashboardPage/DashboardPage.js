@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Container from '../../components/Container/Container';
 import ProductsCount from '../../components/ProductsCount/ProductsCount';
+import { ROOT_PATH } from '../../config';
 
 const DashboardPage = () => {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const DashboardPage = () => {
     }, [browserDataLoged])
 
     if (!loged) {
-        navigate('/')
+        navigate(`${ROOT_PATH}`)
     }
 
     return (

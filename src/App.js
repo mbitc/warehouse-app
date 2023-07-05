@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { WithNav, WithoutNav } from './util/NavStatus/NavStatus';
 import LoginPage from './pages/LoginPage/LoginPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
@@ -8,7 +9,7 @@ import TeamPage from './pages/TeamPage/TeamPage';
 import UserPage from './pages/UserPage/UserPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ItemPage from './pages/ItemPage/ItemPage';
-import { ToastContainer } from 'react-toastify';
+import { ROOT_PATH } from './config';
 import "react-toastify/dist/ReactToastify.css";
 import './App.scss';
 
@@ -19,16 +20,16 @@ const App = () => {
                 <Routes>
                     <Route path='*' element={<h1>404 Page not found...</h1>} />
                     <Route element={<WithoutNav />} >
-                        <Route path='/' element={<LoginPage />} />
+                        <Route path={ROOT_PATH} element={<LoginPage />} />
                     </Route>
                     <Route element={<WithNav />} >
-                        <Route path='/dashboard' element={<DashboardPage />} />
-                        <Route path='/location' element={<LocationPage />} />
-                        <Route path='/team' element={<TeamPage />} />
-                        <Route path='/user/:id' element={<UserPage />} />
-                        <Route path='/catalog' element={<CatalogPage />} />
-                        <Route path='/catalog/:id' element={<ProductsPage />} />
-                        <Route path='/catalog/item/:id' element={<ItemPage />} />
+                        <Route path={`${ROOT_PATH}dashboard`} element={<DashboardPage />} />
+                        <Route path={`${ROOT_PATH}location`} element={<LocationPage />} />
+                        <Route path={`${ROOT_PATH}team`} element={<TeamPage />} />
+                        <Route path={`${ROOT_PATH}user/:id`} element={<UserPage />} />
+                        <Route path={`${ROOT_PATH}catalog`} element={<CatalogPage />} />
+                        <Route path={`${ROOT_PATH}catalog/:id`} element={<ProductsPage />} />
+                        <Route path={`${ROOT_PATH}catalog/item/:id`} element={<ItemPage />} />
                     </Route>
                 </Routes>
             </Router>

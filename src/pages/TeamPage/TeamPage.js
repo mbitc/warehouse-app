@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import style from './TeamPage.module.scss';
 
@@ -22,7 +22,7 @@ const TeamPage = () => {
     const usersListElement = users.map(user => {
         return (
             <li key={user.id}>
-                <Link className='link' to={`/user/${user.id}`}>
+                <Link className='link' to={`${ROOT_PATH}user/${user.id}`}>
                     <div className={style.userCase}>
                         <span>{user.name} {user.surname}</span>
                         <span className={style.userRole}>{user.level.role}</span>

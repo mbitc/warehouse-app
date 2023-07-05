@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
 import style from './LoginPage.module.scss';
@@ -21,7 +21,7 @@ const LoginPage = () => {
         if (loged) {
             localStorage.setItem('loged', loged)
             localStorage.setItem('userLevel', JSON.stringify(userData))
-            navigate('/dashboard')
+            navigate(`${ROOT_PATH}dashboard`)
         }
     }, [loged, navigate, userData])
 
