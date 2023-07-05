@@ -47,9 +47,17 @@ const ItemForm = ({ show, onCloseModal, data }) => {
                 .then(res => toast.success(`Item ${newItem.name} is updated ${res.statusText}`))
                 .catch(err => toast.error(err.message))
             } else {
-                axios.post(`${API_URL}/products`, (newItem))
-                .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
-                .catch(err => toast.error(err.message))
+                if (!newItem.img) {
+                    const imgPath = `https://placehold.co/350x240/grey/white?font=oswald&text=${newItem.name.toLowerCase()}`;
+                    const newItemWithImg = {...newItem, img: imgPath};
+                    axios.post(`${API_URL}/products`, newItemWithImg)
+                    .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
+                    .catch(err => toast.error(err.message))
+                } else {
+                    axios.post(`${API_URL}/products`, newItem)
+                    .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
+                    .catch(err => toast.error(err.message))
+                }
         }
         closeModalHandler()
     };
