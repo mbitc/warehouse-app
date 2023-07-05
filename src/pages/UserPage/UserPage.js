@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import SignInForm from '../../components/SignInForm/SignInForm';
 import style from './UserPage.module.scss';
@@ -27,7 +27,7 @@ const UserPage = () => {
         axios.delete(`${API_URL}/users/${id}`)
             .then(res => {
                 toast.info(`User ${user.name} ${user.surname} is deleted ${res.statusText}`)
-                navigation('/team')
+                navigation(`${ROOT_PATH}team`)
             })
             .catch(err => toast.error(err.message))
     };

@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import ItemForm from '../../components/ItemForm/ItemForm';
 import style from './ProductsPage.module.scss';
@@ -43,7 +43,7 @@ const ProductsPage = () => {
             <li key={product.id} className={style.productList}>
                 <button className='edit' onClick={() => editItemHandler(product)} />
                 <button className='delete' onClick={() => deleteItemHandler(product.id)} />
-                <Link className='link' to={`/warehouse-app/catalog/item/${product.id}`}>
+                <Link className='link' to={`${ROOT_PATH}catalog/item/${product.id}`}>
                     {product.name}: {product.qty}
                 </Link>
             </li>

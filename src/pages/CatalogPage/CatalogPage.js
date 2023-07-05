@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { API_URL } from '../../config';
+import { API_URL, ROOT_PATH } from '../../config';
 import Container from '../../components/Container/Container';
 import style from './CatalogPage.module.scss';
 
@@ -81,7 +81,7 @@ const CatalogPage = () => {
             <li key={catalog.id} className={style.categoryList}>
                 <button className='delete' onClick={() => deleteCatalogHandler(catalog.id)} />
                 <button className='edit' onClick={() => editCatalogHandler(catalog.id)} />
-                <Link className='link' key={catalog.id} to={`/warehouse-app/catalog/${catalog.id}`}>
+                <Link className='link' key={catalog.id} to={`${ROOT_PATH}catalog/${catalog.id}`}>
                     {catalog.name}: {catalog.products ? catalog.products.length : '0'}
                 </Link>
             </li>
