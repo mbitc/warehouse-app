@@ -27,6 +27,9 @@
         @include responsive.md {
             display: flex;
             justify-content: flex-end;
+            padding: 2rem;
+            background-color: white;
+            font-size: 2rem;
         }
 
     }
