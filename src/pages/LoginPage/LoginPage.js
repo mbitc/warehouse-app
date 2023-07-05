@@ -46,9 +46,11 @@ const LoginPage = () => {
                         toast.error('wrong email')
                         setLoged(false)
                     }
+                } else {
+                    toast.error('no user')
                 }
             })
-            .catch(err => console.log(err.message))
+            .catch(err => toast.error(err.message))
     };
 
     const signInFormHandler = () => setModal(true);
