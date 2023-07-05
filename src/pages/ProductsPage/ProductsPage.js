@@ -32,8 +32,8 @@ const ProductsPage = () => {
         axios.delete(`${API_URL}/products/${id}`)
             .then(res => {
                 const productIndex = products.findIndex(product => product.id === Number(id));
+                toast.info(`Product ${products[productIndex].name} is deleted ${res.statusText}`)
                 setProducts(prevState => prevState.toSpliced(productIndex, 1))
-                toast.info(`Product ${product.name} is deleted ${res.statusText}`)
             })
             .catch(err => toast.error(err.message))
     };
