@@ -1,5 +1,5 @@
 @mixin google-font($family) {
-  @import url('http://fonts.googleapis.com/css2?family=#{$family}');
+  @import url('https://fonts.googleapis.com/css2?family=#{$family}');
 }
 
 @include google-font('Inter:wght@400;500;600;700;800;900&display=swap');
