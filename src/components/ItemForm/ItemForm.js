@@ -44,22 +44,30 @@ const ItemForm = ({ show, onCloseModal, data }) => {
         e.preventDefault()
         if (data) {
             axios.patch(`${API_URL}/products/${newItem.id}`, newItem)
-                .then(res => toast.success(`Item ${newItem.name} is updated ${res.statusText}`))
+                .then(res => {
+                    toast.success(`Item ${newItem.name} is updated ${res.statusText}`)
+                    closeModalHandler()
+                })
                 .catch(err => toast.error(err.message))
             } else {
                 if (!newItem.img) {
                     const imgPath = `https://placehold.co/350x240/grey/white?font=oswald&text=${newItem.name.toLowerCase()}`;
                     const newItemWithImg = {...newItem, img: imgPath};
                     axios.post(`${API_URL}/products`, newItemWithImg)
-                    .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
+                    .then(res => {
+                        toast.success(`Item ${newItem.name} is ${res.statusText}`)
+                        closeModalHandler()
+                    })
                     .catch(err => toast.error(err.message))
                 } else {
                     axios.post(`${API_URL}/products`, newItem)
-                    .then(res => toast.success(`Item ${newItem.name} is ${res.statusText}`))
+                    .then(res => {
+                        toast.success(`Item ${newItem.name} is ${res.statusText}`)
+                        closeModalHandler()
+                    })
                     .catch(err => toast.error(err.message))
                 }
         }
-        closeModalHandler()
     };
 
     const inputsHandler = e => {

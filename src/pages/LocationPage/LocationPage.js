@@ -20,7 +20,7 @@ const LocationPage = () => {
         axios.get(`${API_URL}/locations?_embed=storages`)
             .then(res => setLocation(res.data))
             .catch(err => toast.error(err.message))
-    }, [])
+    }, [place])
 
     useEffect(() => {
         axios.get(`${API_URL}/products`)

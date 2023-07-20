@@ -34,9 +34,11 @@ const SignInForm = ({ show, onCloseModal, data }) => {
         e.preventDefault()
         if (data) {
             axios.patch(`${API_URL}/users/${newUser.id}`, (newUser))
-                .then(res => toast.success(`User ${newUser.name} is updated ${res.statusText}`))
+                .then(res => {
+                    toast.success(`User ${newUser.name} is updated ${res.statusText}`)
+                    closeModalHandler()
+                })
                 .catch(err => toast.error(err.message))
-            closeModalHandler()
         } else {
             axios.get(`${API_URL}/users?q=${newUser.email}`)
                 .then(res => {
@@ -44,9 +46,11 @@ const SignInForm = ({ show, onCloseModal, data }) => {
                         if (newUser.password === newUser.passwordRepeat) {
                             delete newUser.passwordRepeat
                             axios.post(`${API_URL}/users`, newUser)
-                                .then(res => toast.success(`User ${newUser.name} is ${res.statusText}`))
+                                .then(res => {
+                                    toast.success(`User ${newUser.name} is ${res.statusText}`)
+                                    closeModalHandler()
+                                })
                                 .catch(err => toast.error(err.message))
-                            closeModalHandler()
                         } else {
                             toast.error('not much password')
                         }
