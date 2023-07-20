@@ -1,2 +1,2 @@
-export const API_URL = 'https://mbitc-warehouse-api-b69c11f29bcf.herokuapp.com';
+export const API_URL = 'https://json-server-mbitc-wh.vercel.app';
 export const ROOT_PATH = '/warehouse-app/';
