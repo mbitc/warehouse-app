@@ -7,6 +7,29 @@
   gap: 3px;
   font-size: 0.8rem;
   margin-top: 3px;
+  & input,
+  select,
+  textarea {
+    width: 100%;
+    color: #ffffff;
+    background-color: #353333;
+    border-style: hidden;
+    &:hover {
+      color: #ffffff;
+      background-color: #353333;
+    }
+
+    @include responsive.sm {
+      color: #353333;
+      background-color: #ffffff;
+      border-style: solid;
+      border-color: #dfdbdb;
+      &:hover {
+        color: #353333;
+        background-color: #ffffff;
+      }
+    }
+  }
 }
 
 .btn {
