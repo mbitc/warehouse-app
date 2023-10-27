@@ -124,6 +124,23 @@
   }
 }
 
+.camera {
+  border: none;
+  background-color: #2196f3;
+  padding: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &::before {
+    content: url('./img/camera.svg');
+    margin-right: 25px;
+  }
+
+  &:hover {
+    background-color: #4144f1;
+  }
+}
+
 .form-modal {
   border: none;
   top: 20vh;
