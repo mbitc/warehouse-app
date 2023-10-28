@@ -133,10 +133,19 @@
   &::before {
     content: url('./img/camera.svg');
     margin-right: 25px;
+
+    @include responsive.sm {
+      content: url('./img/camera-light.svg');
+      margin-right: 25px;
+    }
   }
 
   &:hover {
     background-color: #ffffff;
+
+    @include responsive.sm {
+      background-color: #000;
+    }
   }
 }
 
