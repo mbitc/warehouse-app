@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/warehouse-app/static/css/main.62745be4.css",
+    "main.css": "/warehouse-app/static/css/main.00a2361d.css",
     "main.js": "/warehouse-app/static/js/main.64dc32da.js",
-    "static/media/camera.svg": "/warehouse-app/static/media/camera.0f0d1b2cbfc2f3b5dd2e.svg",
+    "static/media/camera-light.svg": "/warehouse-app/static/media/camera-light.bd1183df64ca3d82c979.svg",
+    "static/media/camera.svg": "/warehouse-app/static/media/camera.38eedc6be88f96898a7b.svg",
     "static/media/edit.svg": "/warehouse-app/static/media/edit.cc649bfe170f46febe2d.svg",
     "index.html": "/warehouse-app/index.html",
     "static/media/delete.svg": "/warehouse-app/static/media/delete.ba384e2ff96e909cf444.svg",
     "static/media/stack.svg": "/warehouse-app/static/media/stack.99f89e9cd992512a658c.svg",
-    "main.62745be4.css.map": "/warehouse-app/static/css/main.62745be4.css.map",
+    "main.00a2361d.css.map": "/warehouse-app/static/css/main.00a2361d.css.map",
     "main.64dc32da.js.map": "/warehouse-app/static/js/main.64dc32da.js.map"
   },
   "entrypoints": [
-    "static/css/main.62745be4.css",
+    "static/css/main.00a2361d.css",
     "static/js/main.64dc32da.js"
   ]
 }
