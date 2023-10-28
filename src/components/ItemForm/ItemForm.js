@@ -139,7 +139,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
               value={newItem.img}
               onChange={inputsHandler}
             />
-            <button className='camera' />
+            <button className='camera' type='button' />
           </div>
         </div>
         <div className='form-control'>

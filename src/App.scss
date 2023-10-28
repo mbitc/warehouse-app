@@ -128,16 +128,24 @@
   border: none;
   background-color: #2196f3;
   padding: 1px;
-  border-radius: 8px;
   cursor: pointer;
 
   &::before {
     content: url('./img/camera.svg');
     margin-right: 25px;
+
+    @include responsive.sm {
+      content: url('./img/camera-light.svg');
+      margin-right: 25px;
+    }
   }
 
   &:hover {
-    background-color: #4144f1;
+    background-color: #ffffff;
+
+    @include responsive.sm {
+      background-color: #000;
+    }
   }
 }
 
