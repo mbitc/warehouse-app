@@ -90,8 +90,8 @@ const ItemForm = ({ show, onCloseModal, data }) => {
   };
 
   const closeModalHandler = () => {
-    onCloseModal();
     setNewItem(itemObj);
+    onCloseModal();
   };
 
   return (

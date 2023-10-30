@@ -8,60 +8,74 @@ import ItemForm from '../../components/ItemForm/ItemForm';
 import style from './ProductsPage.module.scss';
 
 const ProductsPage = () => {
-    const { id } = useParams();
-    const [product, setProduct] = useState(null);
-    const [products, setProducts] = useState(null);
-    const [modal, setModal] = useState(false);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [products, setProducts] = useState(null);
+  const [modal, setModal] = useState(false);
 
-    useEffect(() => {
-        axios.get(`${API_URL}/catalogs/${id}?_embed=products`)
-            .then(res => setProducts(res.data.products))
-            .catch(err => toast.error(err.message))
-    }, [id, modal])
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/catalogs/${id}?_embed=products`)
+      .then((res) => setProducts(res.data.products))
+      .catch((err) => toast.error(err.message));
+  }, [id, modal]);
 
-    if (!products) {
-        return null;
-    }
+  if (!products) {
+    return null;
+  }
 
-    const editItemHandler = product => {
-        setProduct(product)
-        setModal(true)
-    };
+  const editItemHandler = (product) => {
+    setProduct(product);
+    setModal(true);
+  };
 
-    const deleteItemHandler = id => {
-        axios.delete(`${API_URL}/products/${id}`)
-            .then(res => {
-                const productIndex = products.findIndex(product => product.id === Number(id));
-                toast.info(`Product ${products[productIndex].name} is deleted ${res.statusText}`)
-                setProducts(prevState => prevState.toSpliced(productIndex, 1))
-            })
-            .catch(err => toast.error(err.message))
-    };
+  const deleteItemHandler = (id) => {
+    axios
+      .delete(`${API_URL}/products/${id}`)
+      .then((res) => {
+        const productIndex = products.findIndex(
+          (product) => product.id === Number(id)
+        );
+        toast.info(
+          `Product ${products[productIndex].name} is deleted ${res.statusText}`
+        );
+        setProducts((prevState) => prevState.toSpliced(productIndex, 1));
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
-    const productsListElement = products.map(product => {
-        return (
-            <li key={product.id} className={style.productList}>
-                <button className='edit' onClick={() => editItemHandler(product)} />
-                <button className='delete' onClick={() => deleteItemHandler(product.id)} />
-                <Link className='link' to={`${ROOT_PATH}catalog/item/${product.id}`}>
-                    {product.name}: {product.qty}
-                </Link>
-            </li>
-        )
-    });
-
-    const showModalHandler = () => setModal(true);
-    const closeModalHandler = () => setModal(false);
-
+  const productsListElement = products.map((product) => {
     return (
-        <Container>
-            <button className='btn long' onClick={showModalHandler}>Add Item</button>
-            <div className={style.productListWrapper}>
-                <ul className='list'>{productsListElement}</ul>
-            </div>
-            <ItemForm show={modal} onCloseModal={closeModalHandler} data={product} />
-        </Container>
+      <li key={product.id} className={style.productList}>
+        <button className='edit' onClick={() => editItemHandler(product)} />
+        <button
+          className='delete'
+          onClick={() => deleteItemHandler(product.id)}
+        />
+        <Link className='link' to={`${ROOT_PATH}catalog/item/${product.id}`}>
+          {product.name}: {product.qty}
+        </Link>
+      </li>
     );
+  });
+
+  const showModalHandler = () => setModal(true);
+  const closeModalHandler = () => {
+    setModal(false);
+    setProduct(null);
+  };
+
+  return (
+    <Container>
+      <button className='btn long' onClick={showModalHandler}>
+        Add Item
+      </button>
+      <div className={style.productListWrapper}>
+        <ul className='list'>{productsListElement}</ul>
+      </div>
+      <ItemForm show={modal} onCloseModal={closeModalHandler} data={product} />
+    </Container>
+  );
 };
 
 export default ProductsPage;
