@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/warehouse-app/static/css/main.00a2361d.css",
-    "main.js": "/warehouse-app/static/js/main.64dc32da.js",
+    "main.js": "/warehouse-app/static/js/main.c4610284.js",
     "static/media/camera-light.svg": "/warehouse-app/static/media/camera-light.bd1183df64ca3d82c979.svg",
     "static/media/camera.svg": "/warehouse-app/static/media/camera.38eedc6be88f96898a7b.svg",
     "index.html": "/warehouse-app/index.html",
@@ -9,10 +9,10 @@
     "static/media/delete.svg": "/warehouse-app/static/media/delete.ba384e2ff96e909cf444.svg",
     "static/media/stack.svg": "/warehouse-app/static/media/stack.99f89e9cd992512a658c.svg",
     "main.00a2361d.css.map": "/warehouse-app/static/css/main.00a2361d.css.map",
-    "main.64dc32da.js.map": "/warehouse-app/static/js/main.64dc32da.js.map"
+    "main.c4610284.js.map": "/warehouse-app/static/js/main.c4610284.js.map"
   },
   "entrypoints": [
     "static/css/main.00a2361d.css",
-    "static/js/main.64dc32da.js"
+    "static/js/main.c4610284.js"
   ]
 }
