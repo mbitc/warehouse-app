@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { API_URL } from '../../config';
 import style from './ItemForm.module.scss';
+import ImgInputPhoto from '../ImgInputPhoto/ImgInputPhoto';
 
 const ItemForm = ({ show, onCloseModal, data }) => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
 
   const [catalogs, setCatalogs] = useState([]);
   const [newItem, setNewItem] = useState(itemObj);
+  const [imgModal, setImgModal] = useState(false);
 
   useEffect(() => {
     if (data) {
@@ -94,6 +96,8 @@ const ItemForm = ({ show, onCloseModal, data }) => {
     onCloseModal();
   };
 
+  const cameraHandler = () => setImgModal(true);
+
   return (
     <dialog className='form-modal' open={show}>
       <h2>{data ? 'Edit Item' : 'Create New Item'}</h2>
@@ -139,7 +143,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
               value={newItem.img}
               onChange={inputsHandler}
             />
-            <button className='camera' type='button' />
+            <button className='camera' type='button' onClick={cameraHandler} />
           </div>
         </div>
         <div className='form-control'>
@@ -179,6 +183,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
       <button className='btn' onClick={closeModalHandler}>
         Close
       </button>
+      <ImgInputPhoto show={imgModal} />
     </dialog>
   );
 };
