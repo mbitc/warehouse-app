@@ -98,7 +98,7 @@
   cursor: pointer;
 
   &::before {
-    content: url('./img/edit.svg');
+    content: url('../public/img/edit.svg');
     margin-right: 25px;
   }
 
@@ -115,7 +115,7 @@
   cursor: pointer;
 
   &::before {
-    content: url('./img/delete.svg');
+    content: url('../public/img/delete.svg');
     margin-right: 25px;
   }
 
@@ -131,11 +131,11 @@
   cursor: pointer;
 
   &::before {
-    content: url('./img/camera.svg');
+    content: url('../public/img/camera.svg');
     margin-right: 25px;
 
     @include responsive.sm {
-      content: url('./img/camera-light.svg');
+      content: url('../public/img/camera-light.svg');
       margin-right: 25px;
     }
   }
