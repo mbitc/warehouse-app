@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { streamUserCam } from '../../util/VideoCam/VideoCam';
+import style from './WebCam.module.scss';
 
 const WebCam = () => {
   let videoRef = useRef(null);
@@ -17,7 +18,7 @@ const WebCam = () => {
 
   return (
     <div>
-      <video ref={videoRef}></video>
+      <video className={style.videoSize} ref={videoRef}></video>
     </div>
   );
 };

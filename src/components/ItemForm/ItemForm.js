@@ -97,6 +97,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
   };
 
   const cameraHandler = () => setImgModal(true);
+  const closeImgModalHandler = () => setImgModal(false);
 
   return (
     <dialog className='form-modal' open={show}>
@@ -183,7 +184,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
       <button className='btn' onClick={closeModalHandler}>
         Close
       </button>
-      <ImgInputPhoto show={imgModal} />
+      <ImgInputPhoto show={imgModal} closeImgCamModal={closeImgModalHandler} />
     </dialog>
   );
 };
