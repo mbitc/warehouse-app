@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { streamUserCam } from '../../util/VideoCam/VideoCam';
 import style from './WebCam.module.scss';
 
-const WebCam = () => {
+const WebCam = ({ videoOn }) => {
   let videoRef = useRef(null);
 
   const getUserVideo = async () => {
@@ -12,9 +12,20 @@ const WebCam = () => {
     video.play();
   };
 
+  const stopVideoOnly = async () => {
+    const stream = videoRef.current.srcObject;
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
+    }
+  };
+
   useEffect(() => {
-    getUserVideo();
-  }, [videoRef]);
+    if (videoOn) {
+      getUserVideo();
+    } else {
+      stopVideoOnly();
+    }
+  }, [videoRef, videoOn]);
 
   return (
     <div>
