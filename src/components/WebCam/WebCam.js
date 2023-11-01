@@ -12,7 +12,7 @@ const WebCam = ({ videoOn }) => {
     video.play();
   };
 
-  const stopVideoOnly = async () => {
+  const stopVideo = async () => {
     const stream = videoRef.current.srcObject;
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
@@ -23,7 +23,7 @@ const WebCam = ({ videoOn }) => {
     if (videoOn) {
       getUserVideo();
     } else {
-      stopVideoOnly();
+      stopVideo();
     }
   }, [videoRef, videoOn]);
 
