@@ -1,0 +1,13 @@
+@use '../../scss/responsive';
+
+.videoWrapp {
+  position: absolute;
+  top: 0;
+  background-color: #000;
+  height: 80vh;
+  border: transparent;
+
+  @include responsive.sm {
+    background-color: #ffffff;
+  }
+}
