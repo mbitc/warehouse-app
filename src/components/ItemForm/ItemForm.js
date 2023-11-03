@@ -99,6 +99,17 @@ const ItemForm = ({ show, onCloseModal, data }) => {
   const cameraHandler = () => setImgModal(true);
   const closeImgModalHandler = () => setImgModal(false);
 
+  const fileSelectHandler = async () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.click();
+
+    input.addEventListener('change', async (e) => {
+      const selectedFile = e.target.files[0];
+      console.log('Pasirinktas failas:', selectedFile);
+    });
+  };
+
   return (
     <dialog className='form-modal' open={show}>
       <h2>{data ? 'Edit Item' : 'Create New Item'}</h2>
@@ -145,6 +156,11 @@ const ItemForm = ({ show, onCloseModal, data }) => {
               onChange={inputsHandler}
             />
             <button className='camera' type='button' onClick={cameraHandler} />
+            <button
+              className='folder'
+              type='button'
+              onClick={fileSelectHandler}
+            />
           </div>
         </div>
         <div className='form-control'>
