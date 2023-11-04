@@ -102,6 +102,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
   const fileSelectHandler = async () => {
     const input = document.createElement('input');
     input.type = 'file';
+    input.accept = 'image/jpeg, image/png';
     input.click();
 
     input.addEventListener('change', async (e) => {
