@@ -7,7 +7,7 @@ const ImgInputPhoto = ({ show, closeImgCamModal, imgFile }) => {
   const fileUrl = URL.createObjectURL(imgFile);
   return (
     <dialog className={style.imgWrapp} open={show}>
-      <img src={fileUrl} alt='pic' width='300px' />
+      <img src={fileUrl} alt='pic' width='200px' />
       <button className='delete' onClick={closeImgCamModal} />
     </dialog>
   );
