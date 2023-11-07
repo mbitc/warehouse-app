@@ -1,12 +1,15 @@
 .categoryWrapper {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+
+  & .categoryList {
     display: flex;
-    height: 80vh;
-    justify-content: center;
     align-items: center;
+  }
+}
 
-
-    & .categoryList {
-        display: flex;
-        align-items: center;
-    }
+.inputWrapper {
+  width: 295px;
 }
