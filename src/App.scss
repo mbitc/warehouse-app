@@ -124,31 +124,6 @@
   }
 }
 
-.camera {
-  border: none;
-  background-color: #2196f3;
-  padding: 1px;
-  cursor: pointer;
-
-  &::before {
-    content: url('../public/img/camera.svg');
-    margin-right: 25px;
-
-    @include responsive.sm {
-      content: url('../public/img/camera-light.svg');
-      margin-right: 25px;
-    }
-  }
-
-  &:hover {
-    background-color: #ffffff;
-
-    @include responsive.sm {
-      background-color: #000;
-    }
-  }
-}
-
 .folder {
   border: none;
   background-color: #2196f3;
