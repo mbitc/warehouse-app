@@ -22,6 +22,7 @@ const ItemForm = ({ show, onCloseModal, data }) => {
   const [catalogs, setCatalogs] = useState([]);
   const [newItem, setNewItem] = useState(itemObj);
   const [imgModal, setImgModal] = useState(false);
+  const [imgFile, setImgFile] = useState(null);
 
   useEffect(() => {
     if (data) {
@@ -96,7 +97,6 @@ const ItemForm = ({ show, onCloseModal, data }) => {
     onCloseModal();
   };
 
-  const cameraHandler = () => setImgModal(true);
   const closeImgModalHandler = () => setImgModal(false);
 
   const fileSelectHandler = async () => {
@@ -107,8 +107,17 @@ const ItemForm = ({ show, onCloseModal, data }) => {
 
     input.addEventListener('change', async (e) => {
       const selectedFile = e.target.files[0];
-      console.log('Pasirinktas failas:', selectedFile);
+      setImgModal(true);
+      setImgFile(selectedFile);
     });
+  };
+
+  const addImgUrlHandler = (uuid) => {
+    setNewItem((prevState) => ({
+      ...prevState,
+      img: `https://ucarecdn.com/${uuid}/-/scale_crop/300x300/-/format/auto/-/quality/smart/`,
+    }));
+    setImgModal(false);
   };
 
   return (
@@ -156,7 +165,6 @@ const ItemForm = ({ show, onCloseModal, data }) => {
               value={newItem.img}
               onChange={inputsHandler}
             />
-            <button className='camera' type='button' onClick={cameraHandler} />
             <button
               className='folder'
               type='button'
@@ -201,7 +209,12 @@ const ItemForm = ({ show, onCloseModal, data }) => {
       <button className='btn' onClick={closeModalHandler}>
         Close
       </button>
-      <ImgInputPhoto show={imgModal} closeImgCamModal={closeImgModalHandler} />
+      <ImgInputPhoto
+        show={imgModal}
+        closeImgModal={closeImgModalHandler}
+        imgFile={imgFile}
+        addImgUrl={addImgUrlHandler}
+      />
     </dialog>
   );
 };

@@ -1,11 +1,27 @@
-import WebCam from '../WebCam/WebCam';
+import { uploadFile } from '@uploadcare/upload-client';
 import style from './ImgInputPhoto.module.scss';
 
-const ImgInputPhoto = ({ show, closeImgCamModal }) => {
+const ImgInputPhoto = ({ show, closeImgModal, imgFile, addImgUrl }) => {
+  const saveImgHangler = async () => {
+    const result = await uploadFile(imgFile, {
+      publicKey: 'a3ceebf59d832a68f3bc',
+      store: 'auto',
+      metadata: {
+        subsystem: 'js-client',
+      },
+    });
+    addImgUrl(result.uuid);
+  };
+
+  if (!imgFile) {
+    return null;
+  }
+  const fileUrl = URL.createObjectURL(imgFile);
   return (
-    <dialog className={style.videoWrapp} open={show}>
-      <WebCam videoOn={show} />
-      <button className='delete' onClick={closeImgCamModal} />
+    <dialog className={style.imgWrapp} open={show}>
+      <img src={fileUrl} alt='pic' width='200px' />
+      <button className='delete' onClick={closeImgModal} />
+      <button className='edit' onClick={saveImgHangler} />
     </dialog>
   );
 };
