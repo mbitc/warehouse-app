@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/warehouse-app/static/css/main.60ed552f.css",
-    "main.js": "/warehouse-app/static/js/main.1e18cef4.js",
+    "main.css": "/warehouse-app/static/css/main.267399f3.css",
+    "main.js": "/warehouse-app/static/js/main.4bae85ac.js",
     "index.html": "/warehouse-app/index.html",
     "static/media/edit.svg": "/warehouse-app/static/media/edit.cc649bfe170f46febe2d.svg",
     "static/media/folder-light.svg": "/warehouse-app/static/media/folder-light.a915455dcca2b9277032.svg",
     "static/media/folder.svg": "/warehouse-app/static/media/folder.35eb1deb1074791c90c0.svg",
     "static/media/delete.svg": "/warehouse-app/static/media/delete.ba384e2ff96e909cf444.svg",
     "static/media/stack.svg": "/warehouse-app/static/media/stack.99f89e9cd992512a658c.svg",
-    "main.60ed552f.css.map": "/warehouse-app/static/css/main.60ed552f.css.map",
-    "main.1e18cef4.js.map": "/warehouse-app/static/js/main.1e18cef4.js.map"
+    "main.267399f3.css.map": "/warehouse-app/static/css/main.267399f3.css.map",
+    "main.4bae85ac.js.map": "/warehouse-app/static/js/main.4bae85ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.60ed552f.css",
-    "static/js/main.1e18cef4.js"
+    "static/css/main.267399f3.css",
+    "static/js/main.4bae85ac.js"
   ]
 }
