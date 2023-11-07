@@ -1,20 +1,18 @@
 {
   "files": {
-    "main.css": "/warehouse-app/static/css/main.b1994d75.css",
-    "main.js": "/warehouse-app/static/js/main.2eec7521.js",
-    "static/media/camera-light.svg": "/warehouse-app/static/media/camera-light.bd1183df64ca3d82c979.svg",
-    "static/media/camera.svg": "/warehouse-app/static/media/camera.38eedc6be88f96898a7b.svg",
+    "main.css": "/warehouse-app/static/css/main.60ed552f.css",
+    "main.js": "/warehouse-app/static/js/main.f7d0f5fa.js",
     "index.html": "/warehouse-app/index.html",
     "static/media/edit.svg": "/warehouse-app/static/media/edit.cc649bfe170f46febe2d.svg",
     "static/media/folder-light.svg": "/warehouse-app/static/media/folder-light.a915455dcca2b9277032.svg",
     "static/media/folder.svg": "/warehouse-app/static/media/folder.35eb1deb1074791c90c0.svg",
     "static/media/delete.svg": "/warehouse-app/static/media/delete.ba384e2ff96e909cf444.svg",
     "static/media/stack.svg": "/warehouse-app/static/media/stack.99f89e9cd992512a658c.svg",
-    "main.b1994d75.css.map": "/warehouse-app/static/css/main.b1994d75.css.map",
-    "main.2eec7521.js.map": "/warehouse-app/static/js/main.2eec7521.js.map"
+    "main.60ed552f.css.map": "/warehouse-app/static/css/main.60ed552f.css.map",
+    "main.f7d0f5fa.js.map": "/warehouse-app/static/js/main.f7d0f5fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1994d75.css",
-    "static/js/main.2eec7521.js"
+    "static/css/main.60ed552f.css",
+    "static/js/main.f7d0f5fa.js"
   ]
 }
