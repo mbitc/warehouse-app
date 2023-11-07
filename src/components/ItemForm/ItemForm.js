@@ -112,6 +112,14 @@ const ItemForm = ({ show, onCloseModal, data }) => {
     });
   };
 
+  const addImgUrlHandler = (uuid) => {
+    setNewItem((prevState) => ({
+      ...prevState,
+      img: `https://ucarecdn.com/${uuid}/-/scale_crop/300x300/-/format/auto/-/quality/smart/`,
+    }));
+    setImgModal(false);
+  };
+
   return (
     <dialog className='form-modal' open={show}>
       <h2>{data ? 'Edit Item' : 'Create New Item'}</h2>
@@ -203,8 +211,9 @@ const ItemForm = ({ show, onCloseModal, data }) => {
       </button>
       <ImgInputPhoto
         show={imgModal}
-        closeImgCamModal={closeImgModalHandler}
+        closeImgModal={closeImgModalHandler}
         imgFile={imgFile}
+        addImgUrl={addImgUrlHandler}
       />
     </dialog>
   );

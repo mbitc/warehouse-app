@@ -1,6 +1,18 @@
+import { uploadFile } from '@uploadcare/upload-client';
 import style from './ImgInputPhoto.module.scss';
 
-const ImgInputPhoto = ({ show, closeImgCamModal, imgFile }) => {
+const ImgInputPhoto = ({ show, closeImgModal, imgFile, addImgUrl }) => {
+  const saveImgHangler = async () => {
+    const result = await uploadFile(imgFile, {
+      publicKey: 'a3ceebf59d832a68f3bc',
+      store: 'auto',
+      metadata: {
+        subsystem: 'js-client',
+      },
+    });
+    addImgUrl(result.uuid);
+  };
+
   if (!imgFile) {
     return null;
   }
@@ -8,7 +20,8 @@ const ImgInputPhoto = ({ show, closeImgCamModal, imgFile }) => {
   return (
     <dialog className={style.imgWrapp} open={show}>
       <img src={fileUrl} alt='pic' width='200px' />
-      <button className='delete' onClick={closeImgCamModal} />
+      <button className='delete' onClick={closeImgModal} />
+      <button className='edit' onClick={saveImgHangler} />
     </dialog>
   );
 };
