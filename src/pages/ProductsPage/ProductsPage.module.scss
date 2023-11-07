@@ -1,12 +1,11 @@
 .productListWrapper {
-    display: flex;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
 
-    
-    & .productList {
-        display: flex;
-        align-items: center;
-    }
+  & .productList {
+    display: flex;
+    align-items: center;
+  }
 }

@@ -1,11 +1,15 @@
 .locationListWrapper {
-    display: flex;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
 
-    & .locationList {
-        display: flex;
-        align-items: center;
-    }
+  & .locationList {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.inputWrapper {
+  width: 295px;
 }
