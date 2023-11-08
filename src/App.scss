@@ -149,6 +149,27 @@
   }
 }
 
+.accept {
+  border: none;
+  background-color: transparent;
+  padding: 1px;
+  cursor: pointer;
+
+  &::before {
+    content: url('../public/img/accept-light.svg');
+    margin-right: 25px;
+
+    @include responsive.sm {
+      content: url('../public/img/accept.svg');
+      margin-right: 25px;
+    }
+  }
+
+  &:hover {
+    background-color: #9cd42c;
+  }
+}
+
 .form-modal {
   border: none;
   top: 20vh;
