@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/warehouse-app/static/css/main.5cf8b59b.css",
-    "main.js": "/warehouse-app/static/js/main.781e5bd6.js",
+    "main.css": "/warehouse-app/static/css/main.df8a3055.css",
+    "main.js": "/warehouse-app/static/js/main.7584197f.js",
     "index.html": "/warehouse-app/index.html",
     "static/media/edit.svg": "/warehouse-app/static/media/edit.cc649bfe170f46febe2d.svg",
     "static/media/accept-light.svg": "/warehouse-app/static/media/accept-light.7bb8014b7773ddc22ef6.svg",
@@ -10,11 +10,11 @@
     "static/media/folder.svg": "/warehouse-app/static/media/folder.35eb1deb1074791c90c0.svg",
     "static/media/delete.svg": "/warehouse-app/static/media/delete.ba384e2ff96e909cf444.svg",
     "static/media/stack.svg": "/warehouse-app/static/media/stack.99f89e9cd992512a658c.svg",
-    "main.5cf8b59b.css.map": "/warehouse-app/static/css/main.5cf8b59b.css.map",
-    "main.781e5bd6.js.map": "/warehouse-app/static/js/main.781e5bd6.js.map"
+    "main.df8a3055.css.map": "/warehouse-app/static/css/main.df8a3055.css.map",
+    "main.7584197f.js.map": "/warehouse-app/static/js/main.7584197f.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cf8b59b.css",
-    "static/js/main.781e5bd6.js"
+    "static/css/main.df8a3055.css",
+    "static/js/main.7584197f.js"
   ]
 }
