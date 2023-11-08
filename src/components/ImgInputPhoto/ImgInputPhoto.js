@@ -20,8 +20,10 @@ const ImgInputPhoto = ({ show, closeImgModal, imgFile, addImgUrl }) => {
   return (
     <dialog className={style.imgWrapp} open={show}>
       <img src={fileUrl} alt='pic' width='200px' />
-      <button className='accept' onClick={saveImgHangler} />
-      <button className='delete' onClick={closeImgModal} />
+      <div>
+        <button className='accept' onClick={saveImgHangler} />
+        <button className='delete' onClick={closeImgModal} />
+      </div>
     </dialog>
   );
 };
